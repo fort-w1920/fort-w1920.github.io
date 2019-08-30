@@ -11,12 +11,13 @@ aufmerksam das [hier](slides/intro-orga.html) durch und bereiten Sie den ersten 
 - [ ] Ihre Github Info [hier](https://docs.google.com/forms/d/e/1FAIpQLSd_3GVA7PX3SOmt0a7GzG9Ps7euLUIkG9Ajghu18D9pditnZw) eintragen
 - [ ] Ihren Rechner fit machen: [Genaue Instruktionen](ex/ex-setup.html)
 
+[Hier](slides/intro-basics.html) steht das meiste von dem was Sie allermindestens schon sehr gut können sollten um gut in diesen Kurs zu starten.
 
 ##  Woche 1 (11.- 18.10.)
 
 Diese Woche viel zum lesen / ansehen, eher wenig zum selbst coden...
 
-Folien & Videos: 
+**Folien & Videos:**
 
 - Styleguide: [slides](slides/codingstyle-styleguide.html), [video]()
 - Defensive Programming:
@@ -29,9 +30,44 @@ Folien & Videos:
     - Teil 2: Conditional Complexity [slides](slides/codingstyle-smells-conditional-complexity.html), [video]()
 - Programmentwurf [slides](slides/codingstyle-topdown.html), [video]()
 
-Übung: S. 
+Vorbereitend für die Präsenzzeit am 24.10. bitte unbedingt Section 2 aus diesem Paper lesen:  
+Angiulli, 2019: *CFOF: A Concentration Free Measure for Anomaly Detection* [pdf](https://arxiv.org/pdf/1901.04992v1.pdf)  
+Am Beispiel von diesem Algorithmus werden wir uns gemeinsam ansehen wie man etwas komplexere Programmierprojekte zB angehen kann...
+
+**Übung:**
+
+S. Assignment-Repos.
+
+##  Woche 2 (19.10. - 25.10.)
+
+Am 24.10. werden wir zusammen einen Entwurf für eine Implementation des
+von Angiulli für die Entdeckung von Ausreißern vorgeschlagenen [CFOF-Scores](https://arxiv.org/pdf/1901.04992v1.pdf) entwickeln. Bitte lesen Sie vorbereitend dafür (mindestens) Section 2 aus dem oben verlinkten Paper.
+
+**Folien & Videos:**
+
+Programmentwurf [slides](slides/codingstyle-topdown.html), [video]()
+
+**Übung:**
+
+- CFOF-Demo
+- Promillerechner
+
+S. Assignment-Repos.
+
+##  Woche 3 (26.10. - 1.11.)
+
+Präsenzzeit am 1.11. entfällt wegen Feiertag.  
+Diese Woche entsprechend wieder etwas mehr zum Lesen / Ansehen und eher kürzere Übungen.
+
+**Folien & Videos:**
+
+- Funktionen
+  - Intro [slides](slides/functions-intro.html), [video]()
+  - Struktur [slides](slides/functions-structure.html), [video]()
+  - Aufrufe [slides](slides/functions-functioncalls.html), [video]()
+  - Spezielle Funktionstypen [slides](slides/functions-speciaalfunctions.html), [video]()
+- Environments
+  
 
 
-
-
-
+**Übung:**
