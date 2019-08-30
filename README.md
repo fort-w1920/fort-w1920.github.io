@@ -2,7 +2,7 @@
 
 Willkommen zum Kurs. 
 
-#-----------------------
+-------------------
 
 ## Onboarding
 
@@ -15,7 +15,7 @@ aufmerksam das [hier](slides/intro-orga.html) durch und bereiten Sie den ersten 
 
 [Hier](slides/intro-basics.html) steht das meiste von dem was Sie allermindestens schon gut beherrschen sollten um geschmeidig in diesen Kurs zu starten. 
 
-#-----------------------
+-------------------
 
 ##  Woche 1 (11.- 18.10.)
 
@@ -43,7 +43,7 @@ Am Beispiel von diesem Algorithmus werden wir uns gemeinsam ansehen wie man etwa
 
 S. Assignment-Repos.
 
-#-----------------------
+-------------------
 
 ##  Woche 2 (19.10. - 25.10.)
 
@@ -61,7 +61,7 @@ Programmentwurf [slides](slides/codingstyle-topdown.html), [video]()
 
 S. Assignment-Repos.
 
-#-----------------------
+-------------------
 
 ##  Woche 3 (26.10. - 1.11.)
 
