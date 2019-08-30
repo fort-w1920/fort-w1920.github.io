@@ -3,7 +3,7 @@
 Willkommen zum Kurs. 
 
 Bitte lesen Sie sich im Vorfeld 
-aufmerksam das [hier](slides/intro-orga.html) durch und bereiten Sie den ersten Präsenztermin vor indem Sie das [hier](ex/onboarding/index.html).
+aufmerksam das [hier](slides/intro-orga.html) durch und bereiten Sie den ersten Präsenztermin vor indem Sie das [hier](ex/onboarding.html).
 
 
 
