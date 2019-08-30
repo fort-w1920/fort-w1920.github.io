@@ -14,13 +14,24 @@ aufmerksam das [hier](slides/intro-orga.html) durch und bereiten Sie den ersten 
 
 ##  Woche 1 (11.- 18.10.)
 
-Inhalte: 
+Diese Woche viel zum lesen / ansehen, eher wenig zum selbst coden...
 
-- Styleguide: 
+Folien & Videos: 
+
+- Styleguide: [slides](slides/codingstyle-styleguide.html), [video]()
 - Defensive Programming:
+    - Intro [slides](slides/codingstyle-defensive.html), [video]()
+    - `{checkmate}` [slides](slides/codingstyle-defensive-checkmate.html), [video]()
+    - Exception Handling [slides](slides/codingstyle-defensive-exceptions.html), [video]()
+    - `{testthat}` [slides](slides/codingstyle-defensive-testthat.html), [video]()
 - Code Smells: 
+    - Intro [slides](slides/codingstyle-smells.html), [video]()
+    - Teil 2: Conditional Complexity [slides](slides/codingstyle-smells-conditional-complexity.html), [video]()
+- Programmentwurf [slides](slides/codingstyle-topdown.html), [video]()
 
-Übung:
+Übung: S. 
+
+
 
 
 
