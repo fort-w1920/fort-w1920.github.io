@@ -41,7 +41,12 @@ Am Beispiel von diesem Algorithmus werden wir uns gemeinsam ansehen wie man etwa
 
 **Übung:**
 
-S. Assignment-Repos.
+- Defense: [1](ex/ex-defensive-lag.html), [2](ex/ex-defensive-count.html), [3](ex/ex-defensive-colmeans.html)
+- Smells: [1](ex/ex-conditional-complex-swipe.html), 
+[2](ex/ex-refactor-dry.html), [3](ex/ex-sanierung.html)
+
+
+S.a. Assignment-Repos.
 
 -------------------
 
