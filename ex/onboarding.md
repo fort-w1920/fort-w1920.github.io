@@ -4,5 +4,5 @@
 
 - [ ] Github Account anlegen
 - [ ] Github Info [hier](https://docs.google.com/forms/d/e/1FAIpQLSd_3GVA7PX3SOmt0a7GzG9Ps7euLUIkG9Ajghu18D9pditnZw) eintragen
-- [ ] Rechner vorbereiten: [Genaue Instruktionen]()
+- [ ] Rechner vorbereiten: [Genaue Instruktionen](ex/ex-setup.html)
 
