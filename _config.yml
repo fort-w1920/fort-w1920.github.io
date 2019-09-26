@@ -1,3 +1,7 @@
-remote_theme: barryclark/jekyll-now
 plugins:
+  - jekyll-remote-theme
   - jekyll-sitemap
+
+remote_theme: heiswayi/the-plain
+
+  
