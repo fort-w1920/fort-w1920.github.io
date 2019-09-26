@@ -1,4 +1,3 @@
-# Fortgeschrittene Programmierung Winter 19/20
 
 Willkommen zum Kurs. 
 
@@ -6,12 +5,14 @@ Willkommen zum Kurs.
 
 ## Onboarding
 
-Bitte lesen Sie sich im Vorfeld 
-aufmerksam das [hier](slides/intro-orga.html) durch und bereiten Sie den ersten Präsenztermin vor indem Sie **VOR** 17.10.2019 14:00h:
 
-- [ ] einen Github Account anlegen
-- [ ] Ihre Github Info [hier](https://forms.gle/yDZEg239hjeyEdzt7) eintragen -- sonst kommen Sie nicht an die Übungsaufgaben.
-- [ ] Ihren Rechner fit machen: [Genaue Instruktionen](ex/ex-setup.html)
+Bitte lesen Sie sich im Vorfeld das [hier](slides/intro-orga.html) durch damit Sie eine Idee davon bekommen was auf Sie zu kommt und bereiten Sie den ersten Präsenztermin vor indem Sie **VOR** 17.10.2019 14:00h:
+
+- einen Github Account anlegen
+- Ihre Github Info [hier](https://forms.gle/yDZEg239hjeyEdzt7) eintragen -- sonst kommen Sie nicht an die Übungsaufgaben.
+- Ihren Rechner fit machen: [Genaue Instruktionen](ex/setup-ex.html)
+
+**Vorkenntnisse:**
 
 [Hier](slides/intro-basics.html) steht das meiste von dem was Sie allermindestens schon gut beherrschen sollten um geschmeidig in diesen Kurs zu starten. 
 
@@ -21,7 +22,7 @@ aufmerksam das [hier](slides/intro-orga.html) durch und bereiten Sie den ersten 
 
 Diese Woche viel zum Lesen / Ansehen, eher wenig zum selbst coden...
 
-**Folien & Videos:**
+**Lesen/Anschauen:**
 
 - Styleguide: [slides](slides/codingstyle-styleguide.html), [video]()
 
@@ -32,22 +33,22 @@ Diese Woche viel zum Lesen / Ansehen, eher wenig zum selbst coden...
     - `{testthat}` [slides](slides/codingstyle-defensive-testthat.html), [video]()
 - Code Smells: 
     - Intro [slides](slides/codingstyle-smells.html), [video]()
-    - Teil 2: Conditional Complexity [slides](slides/codingstyle-smells-conditional-complexity.html), [video]()
+    - Teil 2: Conditional Complexity [slides](slides/codingstyle-smells-conditionalcomplexity.html), [video]()
 - Programmentwurf [slides](slides/codingstyle-topdown.html), [video]()
 
 Vorbereitend für die Präsenzzeit am 24.10. bitte unbedingt Section 2 aus diesem Paper lesen:  
 Angiulli, 2019: *CFOF: A Concentration Free Measure for Anomaly Detection* [[pdf]](https://arxiv.org/pdf/1901.04992v1.pdf)  
-Am Beispiel von diesem Algorithmus werden wir uns gemeinsam ansehen wie man etwas komplexere Programmierprojekte zB angehen kann...
+Diesen Algorithmus werden wir gemeinsam im Top-Down-Stil implementieren.
 
-**Übung:**
+**Machen:**
 
-- Defense: [1](ex/ex-defensive-lag.html), [2](ex/ex-defensive-count.html), [3](ex/ex-defensive-colmeans.html)
-- Smells: [1](ex/ex-conditional-complex-swipe.html), 
-[2](ex/ex-refactor-dry.html), [3](ex/ex-sanierung.html)
+- Defense: [1](ex/defensive-lag-ex.html), [2](ex/defensive-count-ex.html), [3](ex/defensive-colmeans-ex.html)
+- Smells: [1](ex/conditional-complex-swipe-ex.html), 
+[2](ex/refactor-dry-ex.html), [3](ex/styleguide-sanierung-ex.html)
 
 
 S.a. Assignment-Repos.
-
+  
 -------------------
 
 ##  Woche 2 (19.10. - 25.10.)
@@ -55,16 +56,16 @@ S.a. Assignment-Repos.
 Am 24.10. werden wir zusammen einen Entwurf für eine Implementation des
 von Angiulli für die Entdeckung von Ausreißern vorgeschlagenen [CFOF-Scores](https://arxiv.org/pdf/1901.04992v1.pdf) entwickeln. Bitte lesen Sie vorbereitend dafür (mindestens) Section 2 aus dem oben verlinkten Paper.
 
-**Folien & Videos:**
+**Lesen/Anschauen:**
 
 Programmentwurf [slides](slides/codingstyle-topdown.html), [video]()
 
-**Übung:**
+**Machen:**
 
-- CFOF-Demo
-- Promillerechner
+- CFOF (Demo & gemeinsame Gruppenarbeit am 24.10.)
+- [Promillerechner](ex/topdown-promille-ex.html)
 
-S. Assignment-Repos.
+S.a. Assignment-Repos.
 
 -------------------
 
@@ -73,18 +74,93 @@ S. Assignment-Repos.
 Präsenzzeit am 1.11. entfällt wegen Feiertag.  
 Diese Woche entsprechend wieder etwas mehr zum Lesen / Ansehen und eher kürzere Übungen.  
 
-**Folien & Videos:**
+**Lesen/Anschauen:**
 
 - Funktionen
   - Intro [slides](slides/functions-intro.html), [video]()
   - Struktur [slides](slides/functions-structure.html), [video]()
   - Aufrufe [slides](slides/functions-functioncalls.html), [video]()
-  - Spezielle Funktionstypen [slides](slides/functions-speciaalfunctions.html), [video]()
+  - Spezielle Funktionstypen [slides](slides/functions-specialfunctions.html), [video]()
 - Environments & Scoping
   - Intro [slides](slides/environments-intro.html), [video]()
-  - Funktionsaufrufe [slides](slides/environments-functioncalls.html), [video]()
-  - Scoping [slides](slides/environments-scoping.html), [video]()
+  - Funktionsaufrufe [slides](slides/environments-functions-calls.html), [video]()
+  - Scoping [slides](slides/environments-scoping.html), [video](), [Lektüre](ex/env-scoping-reading-ex.html)
   
+**Machen:**
 
+- [Funktionen](ex/functions-ex.html)
+- [Environments](ex/functions-ex.html)
 
-**Übung:**
+S.a. Assignment-Repos.
+
+-------------------
+
+##  Woche 4 (2.11. - 8.11.)
+
+**Lesen/Anschauen:**
+
+- Debugging
+  - Intro [slides](slides/debugging-intro.html), [video]()
+  - Workflow [slides](slides/debugging-process.html), [video]()
+  - Tools [slides](slides/debugging-tools.html), [video]()
+  - Häufige Quellen von Bugs [slides](slides/debugging-frequentmistakes.html), [video]()
+- Performance 
+  - Profiling [slides](slides/performance-profiling.html), [video]()
+  - Effizientes Programmieren [slides](slides/performance-programming.html), [video]()
+  - Parallelisierung [slides](slides/performance-parallel.html), [video](), [Lektüre](ex/parallel-reading-ex.html)
+  
+**Machen:**
+
+- [`slow-sim`](ex/prof-simprofile-ex.html)
+
+S.a. Assignment-Repo.
+
+-------------------
+
+## Woche 5/6 (9.11. - 22.11.)
+
+Übung, Vertiefung, Nachbereitung/Peer Reviews - kein neuer Stoff.
+
+**Machen:**
+
+- Stability Selection: [1](ex/stabsel-reading-ex.html), [2](ex/stabsel-ex.html)
+- [RANSAC](ex/topdown-parallel-ransac-ex.html)
+
+S.a. Assignment-Repos
+
+-------------------
+
+## Woche 7/8 (23.11. - 6.12.)
+
+Übung, Vertiefung, Nachbereitung/Peer Reviews - kein neuer Stoff.
+
+**Machen:**
+
+- [Half-Space Mass](ex/topdown-halfspacemass-ex.html)
+
+S.a. Assignment-Repo.
+
+--------------------
+
+### Ende Teil I
+
+<!--
+
+--------------------
+
+## Woche 9/10 (7.12. - 20.12.)
+
+Präsenzzeit am 20.12. entfällt.
+
+**Lesen/Anschauen:**
+
+- `S3`
+- `S4`
+
+**Machen:**
+
+- [Half-Space Mass](ex/topdown-halfspacemass-ex.html)
+
+S.a. Assignment-Repos.
+
+-->
