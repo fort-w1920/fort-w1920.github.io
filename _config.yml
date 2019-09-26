@@ -1,3 +1,3 @@
-remote_theme: aspirethemes/type
+remote_theme: chesterhow/tale
 plugins:
   - jekyll-sitemap
