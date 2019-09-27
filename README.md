@@ -63,7 +63,8 @@ S.a. Assignment-Repos.
 ##  Woche 2 (19.10. - 25.10.)
 
 Am 24.10. werden wir zusammen einen Entwurf für eine Implementation des
-von Angiulli für die Entdeckung von Ausreißern vorgeschlagenen [CFOF-Scores](https://arxiv.org/pdf/1901.04992v1.pdf){:target="_blank"} entwickeln. Bitte lesen Sie vorbereitend dafür (mindestens) Section 2 aus dem oben verlinkten Paper.
+von Angiulli für die Entdeckung von Ausreißern vorgeschlagenen [CFOF-Scores](https://arxiv.org/pdf/1901.04992v1.pdf){:target="_blank"} entwickeln. Bitte lesen Sie vorbereitend dafür (mindestens) Section 2 aus dem oben verlinkten Paper.  
+Eine einfachere Fingerübung ist die Promillerechner-Aufgabe, die Sie unbedingt versuchen sollten selbst zu lösen.
 
 **Lesen/Anschauen:**
 
@@ -98,7 +99,7 @@ Diese Woche entsprechend wieder etwas mehr zum Lesen / Ansehen und eher kürzere
 **Machen:**
 
 - [Funktionen](ex/functions-ex.html){:target="_blank"}
-- [Environments](ex/functions-ex.html){:target="_blank"}
+- [Environments](ex/env-ex.html){:target="_blank"}
 
 S.a. Assignment-Repos.
 
@@ -111,8 +112,9 @@ S.a. Assignment-Repos.
 - Debugging
   - Intro [slides](slides/debugging-intro.html){:target="_blank"}, [video]()
   - Workflow [slides](slides/debugging-process.html){:target="_blank"}, [video]()
-  - Tools [slides](slides/debugging-tools.html){:target="_blank"}, [video]()
+  - Tools [slides](slides/debugging-tools.html){:target="_blank"}, [video](), [Lektüre](ex/debug-reading-ex.html)
   - Häufige Quellen von Bugs [slides](slides/debugging-frequentmistakes.html){:target="_blank"}, [video]()
+   
 - Performance 
   - Profiling [slides](slides/performance-profiling.html){:target="_blank"}, [video]()
   - Effizientes Programmieren [slides](slides/performance-programming.html){:target="_blank"}, [video]()
@@ -120,9 +122,12 @@ S.a. Assignment-Repos.
   
 **Machen:**
 
-- [`slow-sim`](ex/prof-simprofile-ex.html){:target="_blank"}
+- Debugging: [1](ex/debug-matcharg-ex.html){:target="_blank"}, [2](ex/debug-rainbowbug-ex.html){:target="_blank"}, [3](ex/debug-rainbowbug-ex.html){:target="_blank"}.  
+Beachten Sie auch die Hinweise und Hilfsmittel [hier](ex/debug-reading-ex.html){:target="_blank"}.
+- [Performance](ex/prof-simprofile-ex.html){:target="_blank"}
 
-S.a. Assignment-Repo.
+
+S.a. Assignment-Repos.
 
 -------------------
 
