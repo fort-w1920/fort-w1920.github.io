@@ -366,8 +366,8 @@ summary {
 
 
 <div id="denkst-du-defensiv-danken-dir-das-da-drauen-die-dudes." class="section level2">
-<h2>Denkst du defensiv danken dir das da draußen die Dudes.</h2>
-<p>Alternativer Titel: <em>Being a cunt about counts.</em></p>
+<h2>Denkst Du Defensiv Danken Dir Das Da Draußen Die Dudes.</h2>
+<p>Alternativer Titel: <em>Being a Cunt about Counts</em></p>
 <pre class="r"><code>count_them &lt;- function(supposedly_a_count) {
   if (!checkmate::test_count(supposedly_a_count)) {
     warning(
@@ -378,9 +378,9 @@ summary {
   }
   supposedly_a_count
 }</code></pre>
-<p>Wirkt harmlos und unscheinbar, oder? Zweck der effektiv 3 Befehle hier oben ist <code>supposedly_a_count</code> gegebenenfalls zu einer Zählvariable, also einer nicht-negativen ganzen Zahl, zu runden, mit einer Warnung, so dass man sich im folgenden darauf verlassen kann dass <code>supposedly_a_count</code> eben tatsächlich eine <em>Anzahl</em> von irgendwas repräsentiert.</p>
+<p>Wirkt harmlos und unscheinbar, oder? Zweck der effektiv drei Befehle hier drüber ist es, <code>supposedly_a_count</code> gegebenenfalls (mit einer Warnung) zu einer Zählvariable, also einer nicht-negativen ganzen Zahl, zu runden so dass man sich im Folgenden darauf verlassen kann dass <code>supposedly_a_count</code> eben tatsächlich eine sinnvolle <em>Anzahl</em> von irgendwas repräsentiert.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Identifizieren Sie möglichst viele der hier getroffenen impliziten Annahmen über das Objekt <code>supposedly_a_count</code>. (Am besten: <em>bevor</em> Sie sich die entsprechenden Tests im mitgelieferten Testfile anschauen.)</p></li>
+<li><p>Identifizieren Sie möglichst viele der hier getroffenen <em>impliziten</em> Annahmen über das Objekt <code>supposedly_a_count</code>. (Am besten: <em>bevor</em> Sie sich die entsprechenden Tests im mitgelieferten Testfile anschauen.)</p></li>
 <li><p>Modifizieren Sie den Code so dass alle diese impliziten Annahmen mittels <em>expliziten</em> <code>assertions</code> überprüft werden, so dass immer entweder eine informative Fehlermeldung oder ein korrektes/vernünftiges Ergebnis (evtl. mit entsprechenden Warnmeldungen, s.o.) zurückgegeben wird.</p></li>
 </ol>
 </div>

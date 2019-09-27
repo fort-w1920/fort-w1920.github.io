@@ -367,7 +367,7 @@ summary {
 
 <div id="geh-weida-mi-lagst" class="section level2">
 <h2>Geh weida, mi <code>lag</code>st!</h2>
-<p>Die Funktion <code>lag()</code> (s.u.) gibt eine Version ihres Vektor-Inputs <code>x</code> zurück die <code>n</code> Werte hinter dem Original beginnt. Verbessern Sie <code>lag()</code> so dass die Funktion für ungeeignete <em>inputs</em> sinnvolle Fehler- oder Warnmeldungen ausgibt und sinnvolle Dinge tut. Schreiben Sie ein paar simple Testfälle um ihre Modifikationen zu überprüfen – also für Listen-, Matrizen-, oder <code>data.frame</code>-förmige <code>x</code>, ungeeignete <code>lag</code>-Werte, …</p>
+<p>Die Funktion <code>lag()</code> (s.u.) gibt eine Version ihres Vektor-Inputs <code>x</code> zurück, die <code>n</code> Werte hinter dem Original beginnt und den Anfang mit <code>NA</code> auffüllt. Verbessern Sie <code>lag()</code> so, dass die Funktion für ungeeignete <em>inputs</em> sinnvolle Fehler- oder Warnmeldungen ausgibt und sinnvolle Dinge tut. Schreiben Sie ein paar simple Testfälle um ihre Modifikationen zu überprüfen – also für Listen-, Matrizen-, oder <code>data.frame</code>-förmige <code>x</code>, ungeeignete <code>lag</code>-Werte, …</p>
 <pre class="r"><code>lag &lt;- function(x, n = 1L) {
   xlen &lt;- length(x)
   c(rep(NA, n), x[seq_len(xlen - n)])
