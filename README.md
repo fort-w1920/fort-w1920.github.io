@@ -6,15 +6,17 @@ Willkommen zum Kurs.
 ## Onboarding
 
 
-Bitte lesen Sie sich im Vorfeld das [hier](slides/intro-orga.html) durch damit Sie eine Idee davon bekommen was auf Sie zu kommt und bereiten Sie den ersten Präsenztermin vor indem Sie **VOR** 17.10.2019 14:00h:
+Bitte lesen Sie sich **im Vorfeld** das [hier](slides/intro-orga.html){:target="_blank"} durch damit Sie eine Idee davon bekommen was auf Sie zukommt.  
+
+Bitte bereiten Sie sich unbedingt auf den ersten Präsenztermin vor, indem Sie **vor** 17.10.2019, 14:00h:
 
 - einen Github Account anlegen
 - Ihre Github Info [hier](https://forms.gle/yDZEg239hjeyEdzt7) eintragen -- sonst kommen Sie nicht an die Übungsaufgaben.
-- Ihren Rechner fit machen: [Genaue Instruktionen](ex/setup-ex.html)
+- Ihren privaten Rechner fit machen: [Genaue Instruktionen](ex/setup-ex.html) dafür, und, falls er tragbar ist, diesen dann am besten auch mit vollgeladenem Akku immer mitbringen.
 
 **Vorkenntnisse:**
 
-[Hier](slides/intro-basics.html) steht das meiste von dem was Sie allermindestens schon gut beherrschen sollten um geschmeidig in diesen Kurs zu starten. 
+[Hier](slides/intro-basics.html) steht ein sehr kurzer Überblick zu dem was Sie allermindestens schon gut beherrschen sollten damit Sie geschmeidig in diesen Kurs zu starten können. 
 
 -------------------
 
