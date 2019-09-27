@@ -6,7 +6,7 @@ Willkommen zum Kurs.
 ## Onboarding
 
 
-Bitte lesen Sie sich **im Vorfeld** das [hier](slides/intro-orga.html){:target="_blank"} durch damit Sie eine Idee davon bekommen was auf Sie zukommt.  
+Bitte lesen Sie sich bereits **im Vorfeld** das [hier](slides/intro-orga.html){:target="_blank"} durch damit Sie eine Idee davon bekommen was auf Sie zukommt.  
 
 Bitte bereiten Sie sich unbedingt auf den ersten Präsenztermin vor, indem Sie **vor** 17.10.2019, 14:00h:
 
