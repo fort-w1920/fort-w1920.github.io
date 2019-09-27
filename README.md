@@ -23,13 +23,13 @@ Bitte bereiten Sie sich unbedingt auf den ersten Präsenztermin vor, indem Sie *
 **Bemerkung zu den HTML-Slides:**
 
 - Navigation mit den Pfeil-Tasten
-- (Mindestens) in Chrome sollten die sich auch mit "Print" als PDF abspeichern lassen (am besten in  Querformat, obvs.) 
+- (Mindestens) in Chrome sollten sie sich auch mittels "Print" als PDF abspeichern lassen (am besten in  Querformat, obvs.), für einfachen Offline-Gebrauch. 
 
 -------------------
 
 ##  Woche 1 (11.- 18.10.)
 
-Diese Woche viel zum Lesen / Ansehen, eher wenig zum selbst coden...
+Diese Woche viel zum Lesen / Ansehen, relativ wenig zum selber coden...
 
 **Lesen/Anschauen:**
 
@@ -46,7 +46,7 @@ Diese Woche viel zum Lesen / Ansehen, eher wenig zum selbst coden...
 - Programmentwurf [slides](slides/codingstyle-topdown.html){:target="_blank"}, [video]()
 
 Vorbereitend für die Präsenzzeit am 24.10. bitte unbedingt Section 2 aus diesem Paper lesen:  
-Angiulli, 2019: *CFOF: A Concentration Free Measure for Anomaly Detection* [[pdf]](https://arxiv.org/pdf/1901.04992v1.pdf)  
+Angiulli, 2019: *CFOF: A Concentration Free Measure for Anomaly Detection* [[pdf]](https://arxiv.org/pdf/1901.04992v1.pdf){:target="_blank"}  
 Diesen Algorithmus werden wir gemeinsam im Top-Down-Stil implementieren.
 
 **Machen:**
@@ -63,7 +63,7 @@ S.a. Assignment-Repos.
 ##  Woche 2 (19.10. - 25.10.)
 
 Am 24.10. werden wir zusammen einen Entwurf für eine Implementation des
-von Angiulli für die Entdeckung von Ausreißern vorgeschlagenen [CFOF-Scores](https://arxiv.org/pdf/1901.04992v1.pdf) entwickeln. Bitte lesen Sie vorbereitend dafür (mindestens) Section 2 aus dem oben verlinkten Paper.
+von Angiulli für die Entdeckung von Ausreißern vorgeschlagenen [CFOF-Scores](https://arxiv.org/pdf/1901.04992v1.pdf){:target="_blank"} entwickeln. Bitte lesen Sie vorbereitend dafür (mindestens) Section 2 aus dem oben verlinkten Paper.
 
 **Lesen/Anschauen:**
 
