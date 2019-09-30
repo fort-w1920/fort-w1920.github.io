@@ -29,6 +29,8 @@ Bitte bereiten Sie sich unbedingt auf den ersten Präsenztermin vor, indem Sie *
 
 ##  Woche 1 (11.- 18.10.)
 
+[Look here](week1.html)
+
 Diese Woche viel zum Lesen / Ansehen, relativ wenig zum selber coden...
 
 **Lesen/Anschauen:**
