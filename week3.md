@@ -2,19 +2,23 @@
 
 Präsenzzeit am 1.11. entfällt wegen Feiertag.  
 
-Diese Woche entsprechend wieder etwas mehr zum Lesen / Ansehen und eher kürzere Übungen.  
+Diese Woche entsprechend etwas mehr zum Lesen / Anschauen und eher kürzere Übungen.  
 
 **Lesen/Anschauen:**
 
 - Funktionen
-  - Intro [slides](slides/functions-intro.html){:target="_blank"}, [video]()
-  - Struktur [slides](slides/functions-structure.html){:target="_blank"}, [video]()
-  - Aufrufe [slides](slides/functions-functioncalls.html){:target="_blank"}, [video]()
-  - Spezielle Funktionstypen [slides](slides/functions-specialfunctions.html){:target="_blank"}, [video]()
+  - Intro [slides](slides/functions-intro.html){:target="_blank"}
+  - Struktur [slides](slides/functions-structure.html){:target="_blank"}
+  - Aufrufe [slides](slides/functions-functioncalls.html){:target="_blank"}
+  - Spezielle Funktionstypen [slides](slides/functions-specialfunctions.html){:target="_blank"}
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLMyWaJl2LoXy_bGp39GNf9CkQr9kSV-tt" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 - Environments & Scoping
-  - Intro [slides](slides/environments-intro.html){:target="_blank"}, [video]()
-  - Funktionsaufrufe [slides](slides/environments-functions-calls.html){:target="_blank"}, [video]()
-  - Scoping [slides](slides/environments-scoping.html){:target="_blank"}, [video](), [Lektüre](ex/env-scoping-reading-ex.html){:target="_blank"}
+  - Intro [slides](slides/environments-intro.html){:target="_blank"}
+  - Funktionsaufrufe [slides](slides/environments-functions-calls.html){:target="_blank"}
+  - Scoping [slides](slides/environments-scoping.html){:target="_blank"}, [Lektüre](ex/env-scoping-reading-ex.html){:target="_blank"}  
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLMyWaJl2LoXy7bRSglA2XlaCPb4ErRwyJ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
 **Machen:**
 
