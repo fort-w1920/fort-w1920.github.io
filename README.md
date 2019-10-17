@@ -5,7 +5,7 @@ Willkommen zum Kurs. Es wird großartig!
 
 **ACHTUNG RAUMÄNDERUNG:**
 
-Donnerstag 14:00-16:00 c.t. @ **CIP 042, Ludwigstr 33**
+Donnerstag 14:00-16:00 c.t. @ **CIP 042, Ludwigstr 33**  
 Freitag 14:00-16:00 c.t. @ CIP III; Ludwigstr 28
 
 -------------------
