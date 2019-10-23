@@ -16,7 +16,7 @@ Diese Woche entsprechend etwas mehr zum Lesen / Anschauen und eher kürzere Übu
 
 - Environments & Scoping
   - Intro [slides](slides/environments-intro.html){:target="_blank"}
-  - Funktionsaufrufe [slides](slides/environments-functions-calls.html){:target="_blank"}
+  - Umgebungen & Funktionsaufrufe [slides](slides/environments-functions-calls.html){:target="_blank"}
   - Scoping [slides](slides/environments-scoping.html){:target="_blank"}, [Lektüre](ex/env-scoping-reading-ex.html){:target="_blank"}  
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLMyWaJl2LoXy7bRSglA2XlaCPb4ErRwyJ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   

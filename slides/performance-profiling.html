@@ -3325,7 +3325,38 @@ microbenchmark(
 ##         expr     min       lq      mean  median       uq     max neval cld
 ##     loop_seq 732.077 733.0195 738.71237 733.998 740.3875 867.080   200   c
 ##  loop_vector 493.848 494.3020 500.30108 495.175 496.9560 650.363   200  b 
-##     built_in  12.223  12.6410  13.18116  12.851  13.5495  19.347   200 a</pre></article></slide>
+##     built_in  12.223  12.6410  13.18116  12.851  13.5495  19.347   200 a</pre>
+
+</article></slide><slide class=""><hgroup><h2>Benchmarking mit <code>bench::mark</code></h2></hgroup><article  id="benchmarking-mit-benchmark">
+
+<pre class = 'prettyprint lang-r'>library(bench)
+bench::mark(
+  loop_seq = sum_i(x),
+  loop_vector = sum_v(x),
+  built_in = sum(x)
+)</pre>
+
+<pre >## # A tibble: 3 x 6
+##   expression       min   median `itr/sec` mem_alloc `gc/sec`
+##   &lt;bch:expr&gt;  &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
+## 1 loop_seq    604.35µs  608.3µs     1634.  350.91KB      0  
+## 2 loop_vector 292.78µs  294.7µs     3349.    5.98KB      0  
+## 3 built_in      7.19µs    9.5µs   100152.        0B     10.0</pre>
+
+</article></slide><slide class=""><hgroup><h2>Benchmarking mit <code>bench::mark</code></h2></hgroup><article  id="benchmarking-mit-benchmark-1">
+
+<pre class = 'prettyprint lang-r'>library(bench)
+bench::mark(
+  loop_seq = sum_i(x),
+  loop_vector = sum_v(x),
+  built_in = sum(x + 1) #!!
+)</pre>
+
+<pre >## Error: Each result must equal the first result:
+##   `sum_i` does not equal `sum`Each result must equal the first result:
+##   `x` does not equal `x + 1`</pre>
+
+<p>Best of breed: automatically checks results, profiles both memory &amp; time.</p></article></slide>
 
 
   <slide class="backdrop"></slide>

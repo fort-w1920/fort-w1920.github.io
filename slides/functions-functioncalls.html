@@ -3170,7 +3170,7 @@ color: white;
 <li>restliche Argumente werden <code>...</code> zugeschlagen, falls vorhanden</li>
 </ol>
 
-</article></slide><slide class=""><hgroup><h2>Argument matching</h2></hgroup><article  id="argument-matching-1">
+</article></slide><slide class=""><hgroup><h2>Argument Matching</h2></hgroup><article  id="argument-matching-1">
 
 <ul>
 <li>nicht alle <code>formal</code>s müssen durch übergebene Argumente abgedeckt werden.</li>
@@ -3188,7 +3188,7 @@ color: white;
 ## missng+                 plot(x, y)
 ## missng+         }</pre>
 
-</article></slide><slide class=""><hgroup><h2>Funktionsaufrufe: best practice</h2></hgroup><article  id="funktionsaufrufe-best-practice">
+</article></slide><slide class=""><hgroup><h2>Funktionsaufrufe: <em>Best Practice</em></h2></hgroup><article  id="funktionsaufrufe-best-practice">
 
 <ul>
 <li>Matching über Position <em>höchstens</em> für die ersten zwei Argumente</li>
@@ -3215,7 +3215,7 @@ color: white;
 <pre >function (x, breaks = &quot;Sturges&quot;, freq = NULL, probability = !freq,
   [...]</pre>
 
-</article></slide><slide class=""><hgroup><h2><em>Lazy evaluation</em></h2></hgroup><article  id="lazy-evaluation">
+</article></slide><slide class=""><hgroup><h2><em>Lazy Evaluation</em></h2></hgroup><article  id="lazy-evaluation">
 
 <p>Funktionsaufufe <em>parsen</em> Argumente (d.h.: prüfen auf gültige Syntax), aber <em>werten sie nicht aus</em> bis sie das erste Mal benutzt werden:</p>
 
@@ -3247,8 +3247,6 @@ multilog(-1)</pre>
 <p>In einem Funktionsaufruf ist <code>&lt;-</code> eine <strong>Zuweisung außerhalb des Funktionsaufrufes</strong> und bindet also den Wert rechts an das Symbol links.</p>
 
 <p><code>=</code> dagegen bindet einen Wert an ein <code>formals</code>-Argument <strong>innerhalb der Funktion</strong>.</p>
-
-<pre >## Warning in rm(x): object &#39;x&#39; not found</pre>
 
 <pre class = 'prettyprint lang-r'>str(args(median))</pre>
 

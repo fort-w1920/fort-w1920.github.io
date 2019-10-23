@@ -3236,7 +3236,7 @@ plus_two(10)</pre>
 
 <pre class = 'prettyprint lang-r'>environment(plus_one)</pre>
 
-<pre >## &lt;environment: 0x55c749bacac8&gt;</pre>
+<pre >## &lt;environment: 0x5561a1eaf930&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>parent.env(environment(plus_one))</pre>
 
@@ -3244,7 +3244,7 @@ plus_two(10)</pre>
 
 <pre class = 'prettyprint lang-r'>environment(plus_two)</pre>
 
-<pre >## &lt;environment: 0x55c748f75740&gt;</pre>
+<pre >## &lt;environment: 0x5561a15a0988&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>ls.str(environment(plus_one))</pre>
 
@@ -3337,24 +3337,22 @@ str(some_fun_result)</pre>
 </article></slide><slide class=""><hgroup><h2>… but wait there’s more:</h2></hgroup><article  id="but-wait-theres-more">
 
 <ul>
-<li><em>Funktion</em> hat Kette von <em>enclosures</em></li>
-<li>Funktions<em>aufruf</em> hat sowohl Kette von <em>calling environments</em> als auch Kette von <em>enclosures</em>.</li>
-<li>also zwei Stränge von Elternumgebungen:
+<li>die <em>enclosure</em> der <em>Funktion</em> hat selbst wieder Eltern- und Großelternumgebungen</li>
+<li>ein Funktions<em>aufruf</em> hat also zwei Stränge von Elternumgebungen:
 
 <ul>
-<li><em>calling environments</em></li>
-<li><em>enclosures</em></li>
+<li>das <em>execution environment</em> in der <em>enclosure</em> und die &ldquo;Vorfahren&rdquo; dieser <em>enclosure</em> der aufgerufenen Funktion</li>
+<li>die ineinander verschachtelten <em>calling environments</em> der Funktionsaufrufe, die den aktuell betrachteten Funktionsaufruf ausgelöst haben, in erster Näherung: der <strong>call stack</strong></li>
 </ul></li>
-<li>jedes <em>calling environment</em> hat auch wiederum eine Kette von <em>enclosures</em></li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2><em>call stack</em></h2></hgroup><article  id="call-stack">
 
-<p><em>call stack</em>: Kette von <em>calling environments</em>, mit zusätzlichen Informationen zu error handling und</p>
+<p><em>call stack</em>: Strang von <em>calling environments</em> mit den zugehörigen Funktionsaufrufen</p>
 
 <ul>
-<li>Zugriff via <code>sys.frame()</code>, <code>sys.function</code>, etc.</li>
-<li>Wichtig für Debugging (<code>traceback()</code>, <code>recover</code>)</li>
+<li>Zugriff via <code>sys.frame()</code>, <code>sys.function()</code>, etc.</li>
+<li>sehr wichtig für Debugging (<code>traceback()</code>, <code>recover()</code>):<br/>Welche Funktion wurde von welcher Funktion mit was für Argumenten aufgerufen?</li>
 </ul></article></slide>
 
 

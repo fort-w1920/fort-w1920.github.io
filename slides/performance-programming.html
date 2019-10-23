@@ -3228,27 +3228,24 @@ built_in_columns &lt;- function(n_col, n_row) col(matrix(NA, n_row, n_col))</pre
 </article></slide><slide class=""><hgroup><h2>Kopien &amp; <em>pre-allocation</em></h2></hgroup><article  id="kopien-pre-allocation-2">
 
 <pre class = 'prettyprint lang-r'>n_col &lt;- 1e2; n_row &lt;- 1e3
-all.equal(smart_columns(n_col, n_row), dumb_columns(n_col, n_row))</pre>
+# all.equal(smart_columns(n_col, n_row), dumb_columns(n_col, n_row))
+# all.equal(kronecker_columns(n_col, n_row), built_in_columns(n_col, n_row))
 
-<pre >## [1] TRUE</pre>
-
-<pre class = 'prettyprint lang-r'>all.equal(kronecker_columns(n_col, n_row), built_in_columns(n_col, n_row))</pre>
-
-<pre >## [1] TRUE</pre>
-
-<pre class = 'prettyprint lang-r'>benchmark(
+bench::mark(
   dumb      = dumb_columns(n_col, n_row),
   smart     = smart_columns(n_col, n_row),
   kronecker = kronecker_columns(n_col, n_row),
   built_in  = built_in_columns(n_col, n_row),
-  replications = 500, columns = c(&quot;test&quot;, &quot;elapsed&quot;, &quot;relative&quot;),
-  order = &quot;elapsed&quot;)</pre>
+  relative  = TRUE
+)[, 1:8]</pre>
 
-<pre >##        test elapsed relative
-## 2     smart   0.220    1.000
-## 4  built_in   0.318    1.445
-## 3 kronecker   0.449    2.041
-## 1      dumb   2.613   11.877</pre>
+<pre >## # A tibble: 4 x 6
+##   expression   min median `itr/sec` mem_alloc `gc/sec`
+##   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 dumb        9.15   8.93      1        30.2      4.48
+## 2 smart       1      1         9.64      1.80     1.55
+## 3 kronecker   2.33   2.32      3.77      2.12     1   
+## 4 built_in    1.01   1.19      8.14      1        1.05</pre>
 
 </article></slide><slide class=""><hgroup><h2>Vektorisierung</h2></hgroup><article  id="vektorisierung">
 
@@ -3274,18 +3271,19 @@ vectorize_busy &lt;- function(z) {
 }
 z &lt;- rnorm(1e4)
 # all.equal(keep_busy(z), loop_busy(z)); all.equal(keep_busy(z), vectorize_busy(z))
-benchmark(
+bench::mark(
   for_loop               = loop_busy(z),
   vapply_vectorization   = vectorize_busy(z),
   r_internals_vectorized = keep_busy(z),
-  replications = 100, columns = c(&quot;test&quot;, &quot;elapsed&quot;, &quot;relative&quot;),
-  order = &quot;elapsed&quot;
-)</pre>
+  relative = TRUE
+)[, 1:8]</pre>
 
-<pre >##                     test elapsed relative
-## 3 r_internals_vectorized   0.093    1.000
-## 1               for_loop   2.371   25.495
-## 2   vapply_vectorization   2.454   26.387</pre></article></slide>
+<pre >## # A tibble: 3 x 6
+##   expression               min median `itr/sec` mem_alloc `gc/sec`
+##   &lt;bch:expr&gt;             &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 for_loop                26.2   26.2      1         2.40     23.3
+## 2 vapply_vectorization    26.1   26.0      1.00      1        23.5
+## 3 r_internals_vectorized   1      1       25.9       2         1</pre></article></slide>
 
 
   <slide class="backdrop"></slide>

@@ -3157,6 +3157,12 @@ color: white;
           </hgroup>
   </slide>
 
+<!-- RENDER THIS FILE OUTSIDE RSTUDIO! -->
+
+<!-- RENDER THIS FILE OUTSIDE RSTUDIO! -->
+
+<!-- parallel code inside RStudio works weird / not -->
+
 <slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Parallelisierung</h2></hgroup><article  id="parallelisierung">
 
 <p align="right">
@@ -3249,7 +3255,7 @@ color: white;
     }
     [...]</pre>
 
-</article></slide><slide class=""><hgroup><h2><code>parallel</code>: Benchmark</h2></hgroup><article  id="parallel-benchmark" class="smaller">
+</article></slide><slide class=""><hgroup><h2><code>parallel</code>: Benchmark</h2></hgroup><article  class="smaller" id="parallel-benchmark">
 
 <pre class = 'prettyprint lang-r'>keep_busy &lt;- function(x) qnorm(pnorm(x))
 
@@ -3265,7 +3271,7 @@ loop_busier &lt;- function(reps) {
   invisible(result)
 }</pre>
 
-</article></slide><slide class=""><hgroup><h2><code>parallel</code>: Benchmark</h2></hgroup><article  id="parallel-benchmark-1" class="smaller">
+</article></slide><slide class=""><hgroup><h2><code>parallel</code>: Benchmark</h2></hgroup><article  class="smaller" id="parallel-benchmark-1">
 
 <pre class = 'prettyprint lang-r'>library(parallel)
 
@@ -3281,14 +3287,14 @@ parallel_cluster_busier &lt;- function(reps, cluster) {
   invisible(unlist(result))
 }</pre>
 
-</article></slide><slide class=""><hgroup><h2><code>parallel</code>: Benchmark</h2></hgroup><article  id="parallel-benchmark-2" class="smaller">
+</article></slide><slide class=""><hgroup><h2><code>parallel</code>: Benchmark</h2></hgroup><article  class="smaller" id="parallel-benchmark-2">
 
 <pre class = 'prettyprint lang-r'>library(parallel)
 local_cluster &lt;- parallel::makeCluster(3) # !!
 parallel::clusterExport(cl = local_cluster, varlist = &quot;keep_busier&quot;) # !!
 
 reps &lt;- 50
-benchmark(loop_busier(reps),
+rbenchmark::benchmark(loop_busier(reps),
   parallel_fork_busier(reps),
   parallel_cluster_busier(reps, local_cluster),
   replications = 10, columns = c(&quot;test&quot;, &quot;elapsed&quot;, &quot;relative&quot;),
@@ -3296,9 +3302,9 @@ benchmark(loop_busier(reps),
 )</pre>
 
 <pre >##                                           test elapsed relative
-## 3 parallel_cluster_busier(reps, local_cluster)   3.465    1.000
-## 2                   parallel_fork_busier(reps)   3.834    1.106
-## 1                            loop_busier(reps)  10.621    3.065</pre>
+## 3 parallel_cluster_busier(reps, local_cluster)   3.211    1.000
+## 2                   parallel_fork_busier(reps)   5.611    1.747
+## 1                            loop_busier(reps)   9.132    2.844</pre>
 
 <pre class = 'prettyprint lang-r'>parallel::stopCluster(local_cluster) # !!</pre>
 
@@ -3314,7 +3320,7 @@ benchmark(loop_busier(reps),
 system.time(set_up_and_close_down())</pre>
 
 <pre >##    user  system elapsed 
-##   0.009   0.009   0.555</pre>
+##   0.008   0.013   0.652</pre>
 
 </article></slide><slide class=""><hgroup><h2><code>clusterExport</code></h2></hgroup><article  id="clusterexport">
 
@@ -3362,15 +3368,20 @@ clusterExport(cl = your_cluster, varlist = list_of_all_you_need,
 
 </article></slide><slide class=""><hgroup><h2><code>future</code>: Benchmark</h2></hgroup><article  id="future-benchmark">
 
-<pre class = 'prettyprint lang-r'>library(future.apply)</pre>
-
-<pre >## Loading required package: future</pre>
-
-<pre class = 'prettyprint lang-r'>parallel_future_busier &lt;- function(reps) {
+<pre class = 'prettyprint lang-r'>library(future.apply)
+parallel_future_busier &lt;- function(reps) {
   future_vapply(seq_len(reps), keep_busier, numeric(1))
 }
 
-future::plan(&quot;multiprocess&quot;, workers = 3) # funktioniert überall</pre>
+future::plan(&quot;multicore&quot;, workers = 3) # funktioniert überall
+
+reps &lt;- 50
+rbenchmark::benchmark(loop_busier(reps),
+  parallel_fork_busier(reps),
+  parallel_future_busier(reps),
+  replications = 10, columns = c(&quot;test&quot;, &quot;elapsed&quot;, &quot;relative&quot;),
+  order = &quot;elapsed&quot;
+)</pre>
 
 <pre >## Warning: [ONE-TIME WARNING] Forked processing (&#39;multicore&#39;) is disabled
 ## in future (&gt;= 1.13.0) when running R from RStudio, because it is
@@ -3380,18 +3391,10 @@ future::plan(&quot;multiprocess&quot;, workers = 3) # funktioniert überall</pre
 ## details, how to control forked processing or not, and how to silence this
 ## warning in future R sessions, see ?future::supportsMulticore</pre>
 
-<pre class = 'prettyprint lang-r'>reps &lt;- 50
-benchmark(loop_busier(reps),
-  parallel_fork_busier(reps),
-  parallel_future_busier(reps),
-  replications = 10, columns = c(&quot;test&quot;, &quot;elapsed&quot;, &quot;relative&quot;),
-  order = &quot;elapsed&quot;
-)</pre>
-
 <pre >##                           test elapsed relative
-## 2   parallel_fork_busier(reps)   3.969    1.000
-## 3 parallel_future_busier(reps)   8.207    2.068
-## 1            loop_busier(reps)  10.503    2.646</pre>
+## 2   parallel_fork_busier(reps)   4.692    1.000
+## 1            loop_busier(reps)   8.079    1.722
+## 3 parallel_future_busier(reps)   8.476    1.806</pre>
 
 </article></slide><slide class=""><hgroup><h2><code>future</code>: Einsatz</h2></hgroup><article  id="future-einsatz">
 
@@ -3399,7 +3402,8 @@ benchmark(loop_busier(reps),
 <li><code>plan(&quot;&lt;strategy&gt;&quot;)</code> definiert/initialisiert das backend – <code>&quot;multiprocess&quot;</code> macht, wenn möglich, <em>fork</em>, sonst <em>cluster</em>.</li>
 <li>Benutzung am besten via <code>future.apply</code>: drop-in Ersatz für R’s <code>*apply</code>-Funktionen. Besonders nice: reproduzierbare Zufallszahlen ohne extra Aufwand.</li>
 <li>definitiv einen Blick wert: <a href='https://purrr.tidyverse.org/' title=''><code>purrr</code></a> + <code>future</code> = <a href='https://davisvaughan.github.io/furrr/' title=''><code>furrr</code></a></li>
-<li>RNG</li>
+<li>reproduzierbare Zufallszahlen per default.</li>
+<li>scheint leider in RStudio instabil – besser in klassischem R Terminal benchmarken</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2><code>foreach</code>: Benchmark</h2></hgroup><article  id="foreach-benchmark">
@@ -3412,31 +3416,27 @@ parallel_foreach_busier &lt;- function(reps) {
   # foreach(rep = seq_len(reps), .combine = &quot;c&quot;) %dorng% keep_busier(rep)
   invisible(result)
 }
-library(doParallel)</pre>
-
-<pre >## Loading required package: iterators</pre>
-
-<pre class = 'prettyprint lang-r'>registerDoParallel(3) # funktioniert überall, analog future::plan(&quot;multiprocess&quot;)
+library(doParallel)
+registerDoParallel(3) # funktioniert überall, analog future::plan(&quot;multiprocess&quot;)
 
 reps &lt;- 50
-benchmark(loop_busier(reps),
-  parallel_fork_busier(reps),
+rbenchmark::benchmark(loop_busier(reps),
+#  parallel_fork_busier(reps),
   parallel_foreach_busier(reps),
   replications = 10, columns = c(&quot;test&quot;, &quot;elapsed&quot;, &quot;relative&quot;),
   order = &quot;elapsed&quot;
 )</pre>
 
 <pre >##                            test elapsed relative
-## 2    parallel_fork_busier(reps)   3.725    1.000
-## 3 parallel_foreach_busier(reps)   4.066    1.092
-## 1             loop_busier(reps)   9.811    2.634</pre>
+## 2 parallel_foreach_busier(reps)   4.091      1.0
+## 1             loop_busier(reps)   9.408      2.3</pre>
 
 </article></slide><slide class=""><hgroup><h2><code>foreach</code>: Einsatz</h2></hgroup><article  id="foreach-einsatz">
 
 <ul>
 <li>parallelisierte <code>for</code>-Schleifen mit <code>foreach(&lt;ITERATOR&gt;, .combine = &lt;AGGREGATION&gt;) %dopar% &lt;SCHLEIFE&gt;</code></li>
 <li><em>backends</em> werden über diverse <code>doBLA</code> Pakete mit den jeweiligen <code>registerDoBLA</code> Funktionen definiert/initialisiert.</li>
-<li>falls nötig: <code>doRNG</code>-Paket für reproduzierbare Zufallszahlen</li>
+<li>für stochastische Algorithmen: <code>doRNG</code>-Paket für reproduzierbare Zufallszahlen</li>
 </ul></article></slide>
 
 

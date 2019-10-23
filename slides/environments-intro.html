@@ -3157,7 +3157,7 @@ color: white;
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Inhalt</h2></hgroup><article  id="inhalt">
+<slide class=""><hgroup><h2>Inhalt</h2></hgroup><article  id="inhalt">
 
 <ul>
 <li>R <code>environment</code> Objekte: Struktur, Besonderheiten</li>
@@ -3266,15 +3266,15 @@ e &lt;- new.env()
 e$f &lt;- new.env(parent = e)
 e</pre>
 
-<pre >## &lt;environment: 0x555d854970a0&gt;</pre>
+<pre >## &lt;environment: 0x561580c11970&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>e$f</pre>
 
-<pre >## &lt;environment: 0x555d845c42e0&gt;</pre>
+<pre >## &lt;environment: 0x56158047f528&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>parent.env(e$f)</pre>
 
-<pre >## &lt;environment: 0x555d854970a0&gt;</pre>
+<pre >## &lt;environment: 0x561580c11970&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>e$f$bla</pre>
 
