@@ -3373,7 +3373,7 @@ parallel_future_busier &lt;- function(reps) {
   future_vapply(seq_len(reps), keep_busier, numeric(1))
 }
 
-future::plan(&quot;multicore&quot;, workers = 3) # funktioniert überall
+future::plan(&quot;multicore&quot;, workers = 3) #&quot;multiprocess&quot; funktioniert überall...
 
 reps &lt;- 50
 rbenchmark::benchmark(loop_busier(reps),
@@ -3383,18 +3383,10 @@ rbenchmark::benchmark(loop_busier(reps),
   order = &quot;elapsed&quot;
 )</pre>
 
-<pre >## Warning: [ONE-TIME WARNING] Forked processing (&#39;multicore&#39;) is disabled
-## in future (&gt;= 1.13.0) when running R from RStudio, because it is
-## considered unstable. Because of this, plan(&quot;multicore&quot;) will fall
-## back to plan(&quot;sequential&quot;), and plan(&quot;multiprocess&quot;) will fall back to
-## plan(&quot;multisession&quot;) - not plan(&quot;multicore&quot;) as in the past. For more
-## details, how to control forked processing or not, and how to silence this
-## warning in future R sessions, see ?future::supportsMulticore</pre>
-
 <pre >##                           test elapsed relative
-## 2   parallel_fork_busier(reps)   4.692    1.000
-## 1            loop_busier(reps)   8.079    1.722
-## 3 parallel_future_busier(reps)   8.476    1.806</pre>
+## 3 parallel_future_busier(reps)   4.579    1.000
+## 2   parallel_fork_busier(reps)   4.647    1.015
+## 1            loop_busier(reps)   8.959    1.957</pre>
 
 </article></slide><slide class=""><hgroup><h2><code>future</code>: Einsatz</h2></hgroup><article  id="future-einsatz">
 
