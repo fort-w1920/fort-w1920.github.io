@@ -22,7 +22,7 @@ Diese Woche entsprechend etwas mehr zum Lesen / Anschauen und eher kürzere Übu
   
 **Machen:**
 
-- [Funktionen](ex/functions-ex.html){:target="_blank"}
-- [Environments](ex/env-ex.html){:target="_blank"}
+- [Funktionen](ex/functions-ex.html){:target="_blank"} (s. repository `functions-ex-<XXX>`)
+- [Environments](ex/env-ex.html){:target="_blank"} (s. repository `env-ex-<XXX>`)
 
 S.a. Assignment-Repos.

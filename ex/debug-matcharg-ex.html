@@ -377,7 +377,7 @@ Wie kommen Sie an den Quellcode für <code>match.arg()</code> der auch Kommentar
 }
 debugonce(match.arg)
 make_something()</code></pre>
-<p>um Zeile für Zeile durch <code>match.arg()</code> zu gehen. Finden Sie heraus was vor sich geht. Schreiben Sie für jede (nicht völlig triviale) Zeile in <code>match.arg()</code> einen Kommentar in ihre Kopie des <code>match.arg()</code>-Codes der erklärt wie &amp; warum was passiert.</p>
+<p>um Zeile für Zeile durch <code>match.arg()</code> zu gehen. Finden Sie heraus was vor sich geht. Dafür müssen Sie wahrscheinlich <code>make_something()</code> auch mal mit anderen Argumenten aufrufen. Schreiben Sie für jede (nicht völlig triviale) Zeile in <code>match.arg()</code> einen Kommentar in ihre Kopie des <code>match.arg()</code>-Codes der erklärt wie &amp; warum was passiert.</p>
 <p><em>Hinweis:</em> Benutzen Sie hier <code>debugonce()</code>, nicht <code>debug()</code>, vor allem wenn Sie eine andere Beispielfunktion als die obige benutzen – sehr viele Funktionen rufen intern <code>match.arg()</code> auf und wir wollen nicht dass der Debugger bei jedem Aufruf von <code>match.arg()</code> aus einer Unterfunktion heraus in diesen neuen Aufruf springt…</p>
 </div>
 

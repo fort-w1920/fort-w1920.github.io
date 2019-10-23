@@ -28,9 +28,9 @@ Diesen Algorithmus werden wir gemeinsam im Top-Down-Stil implementieren.
 
 **Machen:**
 
-- Defense: [1](ex/defensive-lag-ex.html){:target="_blank"}, [2](ex/defensive-count-ex.html){:target="_blank"}, [3](ex/defensive-colmeans-ex.html){:target="_blank"}
+- Defense: [1](ex/defensive-lag-ex.html){:target="_blank"}, [2](ex/defensive-count-ex.html){:target="_blank"}, [3](ex/defensive-colmeans-ex.html){:target="_blank"} (s. repository `defensive-ex-<XXX>`)
 - Smells: [1](ex/conditional-complex-swipe-ex.html){:target="_blank"}, 
-[2](ex/refactor-dry-ex.html){:target="_blank"}, [3](ex/styleguide-sanierung-ex.html){:target="_blank"}
+[2](ex/refactor-dry-ex.html){:target="_blank"}, [3](ex/styleguide-sanierung-ex.html){:target="_blank"} (s. repository `codingstyle-ex-<XXX>`)
 
 
 S.a. Assignment-Repos.
