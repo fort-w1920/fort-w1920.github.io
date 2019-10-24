@@ -11,7 +11,8 @@ Programmentwurf [slides](slides/codingstyle-topdown.html){:target="_blank"}
 
 **Machen:**
 
-- CFOF (Demo & gemeinsame Gruppenarbeit am 24.10.)
+- CFOF (Demo & gemeinsame Gruppenarbeit am 24.10.)  
+  Mögliche Lösung hier: [fort-w1920/cfof-demo](www.github.com/fort-w1920/cfof-demo)
 - [Promillerechner](ex/topdown-promille-ex.html){:target="_blank"} (s. repository `promille-ex-<XXX>`)
 
 S.a. Assignment-Repos.
