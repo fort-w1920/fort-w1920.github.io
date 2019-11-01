@@ -105,6 +105,19 @@ S.a. Assignment-Repo.
 
 ### Ende Teil I
 
+
+## Test {.tabset}
+
+### tab 1
+
+- Stability Selection: [1](ex/stabsel-reading-ex.html){:target="_blank"}, [2](ex/stabsel-ex.html){:target="_blank"}
+
+### tab 2
+
+bla
+
+## next
+
 <!--
 
 --------------------
