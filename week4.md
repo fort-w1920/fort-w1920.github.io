@@ -1,10 +1,9 @@
-#  Woche 4 (2.11. - 8.11.)
-
-**Lesen/Anschauen:**
 ---
 layout: page
 title: Woche 4 (2.11. - 9.11.)
 ---
+
+**Lesen/Anschauen:**
 
 
 - Debugging
