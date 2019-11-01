@@ -11,8 +11,8 @@ title: Woche 4 (2.11. - 9.11.)
   - Workflow [slides](slides/debugging-process.html){:target="_blank"}
   - Tools [slides](slides/debugging-tools.html){:target="_blank"}, [video](), [Lektüre](ex/debug-reading-ex.html)
   - Häufige Quellen von Bugs [slides](slides/debugging-frequentmistakes.html){:target="_blank"}
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/undefined" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-   
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLMyWaJl2LoXwYr4oBRkjo-NZ2LF3jFTEG" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 - Performance 
   - Profiling [slides](slides/performance-profiling.html){:target="_blank"}
   - Effizientes Programmieren [slides](slides/performance-programming.html){:target="_blank"}
