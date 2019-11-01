@@ -1,4 +1,7 @@
-#  Woche 3 (26.10. - 1.11.)
+---
+layout: page
+title: Woche 3 (26.10. - 1.11.)
+---
 
 Präsenzzeit am 1.11. entfällt wegen Feiertag.  
 

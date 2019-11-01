@@ -1,6 +1,11 @@
 #  Woche 4 (2.11. - 8.11.)
 
 **Lesen/Anschauen:**
+---
+layout: page
+title: Woche 4 (2.11. - 9.11.)
+---
+
 
 - Debugging
   - Intro [slides](slides/debugging-intro.html){:target="_blank"}
@@ -10,15 +15,13 @@
   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/undefined" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    
 - Performance 
-  - Profiling [slides](slides/performance-profiling.html){:target="_blank"}, [video]()
-  - Effizientes Programmieren [slides](slides/performance-programming.html){:target="_blank"}, [video]()
-  - Parallelisierung [slides](slides/performance-parallel.html){:target="_blank"}, [video](), [Lektüre](ex/parallel-reading-ex.html){:target="_blank"}
+  - Profiling [slides](slides/performance-profiling.html){:target="_blank"}
+  - Effizientes Programmieren [slides](slides/performance-programming.html){:target="_blank"}
+  - Parallelisierung [slides](slides/performance-parallel.html){:target="_blank"}, [Lektüre](ex/parallel-reading-ex.html){:target="_blank"}
   
 **Machen:**
 
-- Debugging: [1](ex/debug-matcharg-ex.html){:target="_blank"}, [2](ex/debug-rainbowbug-ex.html){:target="_blank"}, [3](ex/debug-rainbowbug-ex.html){:target="_blank"}.  
+- Debugging: [1](ex/debug-matcharg-ex.html){:target="_blank"}, [2](ex/debug-rainbowbug-ex.html){:target="_blank"}, [3](ex/debug-rainbowbug-ex.html){:target="_blank"}.  (s. repository `debugging-ex-<XXX>`)
 Beachten Sie auch die Hinweise und Hilfsmittel [hier](ex/debug-reading-ex.html){:target="_blank"}.
 - [Performance](ex/prof-simprofile-ex.html){:target="_blank"}
 
-
-S.a. Assignment-Repos.
