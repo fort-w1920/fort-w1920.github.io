@@ -3,10 +3,11 @@
 **Lesen/Anschauen:**
 
 - Debugging
-  - Intro [slides](slides/debugging-intro.html){:target="_blank"}, [video]()
-  - Workflow [slides](slides/debugging-process.html){:target="_blank"}, [video]()
+  - Intro [slides](slides/debugging-intro.html){:target="_blank"}
+  - Workflow [slides](slides/debugging-process.html){:target="_blank"}
   - Tools [slides](slides/debugging-tools.html){:target="_blank"}, [video](), [Lektüre](ex/debug-reading-ex.html)
-  - Häufige Quellen von Bugs [slides](slides/debugging-frequentmistakes.html){:target="_blank"}, [video]()
+  - Häufige Quellen von Bugs [slides](slides/debugging-frequentmistakes.html){:target="_blank"}
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/undefined" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    
 - Performance 
   - Profiling [slides](slides/performance-profiling.html){:target="_blank"}, [video]()
