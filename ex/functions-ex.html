@@ -385,6 +385,7 @@ cor(m = &quot;k&quot;, y = y, u = &quot;p&quot;, x = x)</code></pre>
   }, y = 0) {
   x + y
 }</code></pre>
+<p><em>HInweis:</em> Was passiert wenn Sie die letzte Zeile mit <code>y + x</code> ersetzen? Mit <code>c(y, x, y)</code>?</p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Was gibt diese Funktion zurück? Warum? Welches Prinzip illustriert sie?</li>
 </ol>
@@ -393,7 +394,7 @@ cor(m = &quot;k&quot;, y = y, u = &quot;p&quot;, x = x)</code></pre>
   x
 }</code></pre>
 <ol start="4" style="list-style-type: lower-alpha">
-<li>Schreiben sie eine <em>infix</em>-Funktion <code>%xor%</code> die eine XOR-Operation (entweder-oder-aber-nicht-beides) durchführt. Überprüfen Sie ihre Funktion mit den folgenden Tests:</li>
+<li>Schreiben sie eine <em>infix</em>-Funktion <code>%xor%</code> für <code>logical</code>-inputs die eine XOR-Operation (entweder-oder-aber-nicht-beides) durchführt. Überprüfen Sie ihre Funktion mit den folgenden Tests:</li>
 </ol>
 <pre class="r"><code>library(testthat)
 
@@ -406,15 +407,15 @@ test_that(&quot;%xor% works as expected for scalar input&quot;, {
   expect_false(FALSE %xor% FALSE)
 })
 
-test_that(&quot;%xor% works as expected for vector input&quot;, {
+test_that(&quot;%xor% works (element-wise) for vector input&quot;, {
   expect_identical(
     c(TRUE, TRUE, FALSE, FALSE) %xor% c(FALSE, TRUE, TRUE, FALSE),
     c(TRUE, FALSE, TRUE, FALSE))
 })</code></pre>
 <ol start="5" style="list-style-type: lower-alpha">
-<li>Wie kann jeweils der Zustand von <code>options()</code> und <code>par()</code> abgespeichert und wiederhergestellt werden?</li>
-<li>Schreiben Sie eine Funktion die ein neues Grafikfenster öffnet, <code>plot</code> mit den übergebenen Argumenten aufruft und das zuvor geöffnete Grafikfenster wieder schließt (egal ob die übergebenen Argumente funktioniert haben oder nicht.)</li>
-<li>Was gibt der folgende Code zurück? Warum? Was bedeuten die drei verschiedenen <code>c</code>s in der zweiten Zeile?</li>
+<li><p>Wie kann jeweils der Zustand von <code>options()</code> und <code>par()</code> abgespeichert und wiederhergestellt werden?</p></li>
+<li><p>Schreiben Sie eine Funktion die ein neues Grafikfenster öffnet, <code>plot</code> mit den übergebenen Argumenten aufruft und das zuvor geöffnete Grafikfenster wieder schließt (egal ob die übergebenen Argumente funktioniert haben oder nicht.)</p></li>
+<li><p>Was gibt der folgende Code zurück? Warum? Was bedeuten die drei verschiedenen <code>c</code>s in der zweiten Zeile?</p></li>
 </ol>
 <pre class="r"><code>c &lt;- 10
 c(c = c)</code></pre>

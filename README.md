@@ -29,7 +29,7 @@ Bitte bereiten Sie sich unbedingt auf den ersten Präsenztermin vor, indem Sie *
 
 **Bemerkung zu den Übungsblättern und Git-Repos:**
 
-**Kursorganisation:** [https://github.com/fort-w1920](){:target="_blank"}
+**Kursorganisation:** [github.com/fort-w1920](https://github.com/fort-w1920){:target="_blank"}
 
 Dort finden Sie, sobald Sie meine Einladung zur Organisation angenommen haben, die jeweiligen
 Repositories in denen ich Ihnen alle Übungen etc zur Verfügung stelle.  
