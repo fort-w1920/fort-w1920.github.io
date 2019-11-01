@@ -5,13 +5,12 @@ title: Woche 4 (2.11. - 9.11.)
 
 **Lesen/Anschauen:**
 
-
 - Debugging
   - Intro [slides](slides/debugging-intro.html){:target="_blank"}
   - Workflow [slides](slides/debugging-process.html){:target="_blank"}
   - Tools [slides](slides/debugging-tools.html){:target="_blank"}, [video](), [Lektüre](ex/debug-reading-ex.html)
   - Häufige Quellen von Bugs [slides](slides/debugging-frequentmistakes.html){:target="_blank"}
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLMyWaJl2LoXwYr4oBRkjo-NZ2LF3jFTEG" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLMyWaJl2LoXwYr4oBRkjo-NZ2LF3jFTEG" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - Performance 
   - Profiling [slides](slides/performance-profiling.html){:target="_blank"}
@@ -22,5 +21,5 @@ title: Woche 4 (2.11. - 9.11.)
 
 - Debugging: [1](ex/debug-matcharg-ex.html){:target="_blank"}, [2](ex/debug-rainbowbug-ex.html){:target="_blank"}, [3](ex/debug-rainbowbug-ex.html){:target="_blank"}.  (s. repository `debugging-ex-<XXX>`)
 Beachten Sie auch die Hinweise und Hilfsmittel [hier](ex/debug-reading-ex.html){:target="_blank"}.
-- [Performance](ex/prof-simprofile-ex.html){:target="_blank"}
+- [Performance](ex/performance-simprofile-ex.html){:target="_blank"}  (s. repository `performance-ex-<XXX>`)
 
