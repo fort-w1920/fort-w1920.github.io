@@ -9,5 +9,5 @@ Stability Selection Explainer:
 
 **Machen:**
 
-- [Stability Selection](ex/topdwon-stability-ex.html) (s. repository `stability-ex-<XXX>`)
+- [Stability Selection](ex/topdown-stability-ex.html) (s. repository `stability-ex-<XXX>`)
 - [RANSAC](ex/topdown-ransac-ex.html){:target="_blank"} (s. repository `ransac-ex-<XXX>`)
