@@ -1,4 +1,7 @@
-#  Woche 2 (19.10. - 25.10.)
+---
+layout: page
+title: Woche 2 (19.10. - 25.10.)
+---
 
 Am 24.10. werden wir zusammen einen Entwurf für eine Implementation des
 von Angiulli für die Entdeckung von Ausreißern vorgeschlagenen [CFOF-Scores](https://arxiv.org/pdf/1901.04992v1.pdf){:target="_blank"} entwickeln. Bitte lesen Sie vorbereitend dafür (mindestens) Section 2 aus dem oben verlinkten Paper.  

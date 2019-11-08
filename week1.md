@@ -1,6 +1,9 @@
-#  Woche 1 (11.- 18.10.)
+---
+layout: page
+title: Woche 1 (11.- 18.10.)
+---
 
-Diese Woche viel zum Lesen / Ansehen, relativ wenig zum selber coden...
+Diese Woche recht viel zum Lesen / Ansehen, relativ wenig zum selber coden...
 
 **Lesen/Anschauen:**
 

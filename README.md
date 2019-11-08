@@ -29,7 +29,7 @@ Bitte bereiten Sie sich unbedingt auf den ersten Präsenztermin vor, indem Sie *
 
 **Bemerkung zu den Übungsblättern und Git-Repos:**
 
-**Kursorganisation:** [https://github.com/fort-w1920](){:target="_blank"}
+**Kursorganisation:** [github.com/fort-w1920](https://github.com/fort-w1920){:target="_blank"}
 
 Dort finden Sie, sobald Sie meine Einladung zur Organisation angenommen haben, die jeweiligen
 Repositories in denen ich Ihnen alle Übungen etc zur Verfügung stelle.  
@@ -82,12 +82,7 @@ Debugging - Performance
 
 Übung, Vertiefung, Nachbereitung/Peer Reviews - kein neuer Stoff.
 
-**Machen:**
-
-- Stability Selection: [1](ex/stabsel-reading-ex.html){:target="_blank"}, [2](ex/stabsel-ex.html){:target="_blank"}
-- [RANSAC](ex/topdown-parallel-ransac-ex.html){:target="_blank"}
-
-S.a. Assignment-Repos
+[Material](week56.html)
 
 -------------------
 

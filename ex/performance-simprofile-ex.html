@@ -180,37 +180,32 @@ summary {
 </div>
 
 
-<div id="umgebungen-umgibt-unglaubliches" class="section level1">
-<h1>Umgebungen umgibt unglaubliches</h1>
-<p>Lesen Sie das <a href="https://adv-r.hadley.nz/environments.html">“Environments”</a>-Kapitel aus <em>Advanced R Programming</em> aufmerksam durch.</p>
-<p>Bearbeiten Sie die folgenden, teilweise von dort übernommenen Aufgaben:</p>
+<div id="mopsgeschwindigkeit" class="section level2">
+<h2>Mopsgeschwindigkeit</h2>
+<p>Der Code in <code>slow-sim.R</code> implementiert eine (relativ sinnbefreite) Simulationsstudie um die Verteilung der geschätzten Regressionskoeffizienten <span class="math inline">\(\hat\beta\)</span> in einem Modell <span class="math inline">\(y \sim t(\text{ncp}= X \beta, \text{df}=4)\)</span> mit <span class="math inline">\(t(4)\)</span>-verteilten Fehlern und linearem Prädiktor <span class="math inline">\(X \beta\)</span> zu bestimmen:</p>
+<pre class="r"><code>source(&quot;slow-sim.R&quot;)
+
+set.seed &lt;- 232323
+observations &lt;- 5000
+covariates &lt;- 10
+testdata &lt;- as.data.frame(
+  matrix(rnorm(observations * covariates),
+         nrow = observations
+  ))
+
+test &lt;- simulate(reps = 100, seed = 20141028, data = testdata)
+
+system.time(test &lt;- simulate(reps = 100, seed = 20141028, data = testdata))</code></pre>
+<pre><code>##    user  system elapsed 
+##   3.274   2.967   0.785</code></pre>
+<p>Die Simulation ist recht ineffizient programmiert.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Inwiefern unterscheiden sich in R Listen (<code>list</code>) von <code>environment</code>s?</li>
-<li>Wo suchen <code>ls()</code> und <code>rm()</code> wenn nicht explizit ein <code>environment</code> angegeben wird?</li>
-<li>Wo legt <code>&lt;-</code> eine (neue) <code>binding</code> an? Wo <code>&lt;&lt;-</code>?</li>
-<li>Schreiben sie eine modifizierte Version <code>anywhere()</code> der Funktion <code>where()</code> aus dem <code>pryr</code>-Paket (<strong>nicht</strong> der im Buch definierten Funktion <code>where</code>), die <em>alle</em> Umgebungen im Suchpfad die eine Variable des gegebenen Namens enthalten in Form einer Liste zurückgibt. Überprüfen Sie ihre Implementation mit <code>test-env-anywhere.R</code>.</li>
+<li>Benutzen Sie die in der Vorlesung kennengelernten Profiling-Methoden um die Stellen zu identifizieren an denen das Skript in <code>slow-sim.R</code> die meiste Zeit verbringt.</li>
+<li>Modifizieren Sie den Code in <code>slow-sim.R</code> so, dass er i) <strong>mindestens 4x schneller</strong> läuft (ohne dass sich die Ergebnisse qualitativ ändern!!) und ii) unseren Vorstellungen von sauber dokumentierter, gut strukturierter und defensiv programmierter Software entspricht.</li>
 </ol>
-<pre class="r"><code>pryr::where</code></pre>
-<pre><code>## Registered S3 method overwritten by 'pryr':
-##   method      from
-##   print.bytes Rcpp</code></pre>
-<pre><code>## function (name, env = parent.frame()) 
-## {
-##     stopifnot(is.character(name), length(name) == 1)
-##     env &lt;- to_env(env)
-##     if (identical(env, emptyenv())) {
-##         stop(&quot;Can't find &quot;, name, call. = FALSE)
-##     }
-##     if (exists(name, env, inherits = FALSE)) {
-##         env
-##     }
-##     else {
-##         where(name, parent.env(env))
-##     }
-## }
-## &lt;bytecode: 0x55f266fd2020&gt;
-## &lt;environment: namespace:pryr&gt;</code></pre>
-<p><em>Hinweis:</em> Die Funktion <code>to_env()</code>, die in <code>pryr::where()</code> benutzt wird wird nicht von <code>pryr</code> exportiert. Sie können die Funktion trotzdem mittels <code>pryr:::to_env()</code> aufrufen.</p>
+<p><em>Hinweis:</em> Betrachten Sie zu a) sowohl wo in dem Code von <code>slow-sim.R</code> die meiste Zeit verbraucht wird als auch welche <em>eingebauten</em> R-Funktionen dort aufgerufen werden und was diese tun und wie.<br />
+Für b) sollten Sie sich zuerst mal überlegen was man hier eigentlich tun will (“First, solve the problem. Then, write the code.”) um dann kritisch auf den Code zu gucken: Wo tut er mehr als er eigentlich muss? Wo wiederholt sich Aufwand? Können Sie Anweisungen vektorisieren oder Zuweisungen prä-allozieren?<br />
+Wenn Sie den Code in b) schön effizient gemacht haben versuchen Sie auch noch ihn (möglichst: plattformunabhängig) zu parallelisieren, mit einem Paket Ihrer Wahl. (Obacht: <code>future</code> funktioniert nicht unbedingt verläßlich in RStudio, benutzen Sie da zum Testen eine normale R-Konsole….)</p>
 </div>
 
 

@@ -3242,10 +3242,10 @@ bench::mark(
 <pre >## # A tibble: 4 x 6
 ##   expression   min median `itr/sec` mem_alloc `gc/sec`
 ##   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 dumb        9.15   8.93      1        30.2      4.48
-## 2 smart       1      1         9.64      1.80     1.55
-## 3 kronecker   2.33   2.32      3.77      2.12     1   
-## 4 built_in    1.01   1.19      8.14      1        1.05</pre>
+## 1 dumb       20.2   17.6       1        30.1      4.80
+## 2 smart       2.84   2.50      7.50      1.80     1.32
+## 3 kronecker   4.39   5.40      3.58      2.12     1   
+## 4 built_in    1      1        17.4       1        1.97</pre>
 
 </article></slide><slide class=""><hgroup><h2>Vektorisierung</h2></hgroup><article  id="vektorisierung">
 
@@ -3281,9 +3281,9 @@ bench::mark(
 <pre >## # A tibble: 3 x 6
 ##   expression               min median `itr/sec` mem_alloc `gc/sec`
 ##   &lt;bch:expr&gt;             &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 for_loop                26.2   26.2      1         2.40     23.3
-## 2 vapply_vectorization    26.1   26.0      1.00      1        23.5
-## 3 r_internals_vectorized   1      1       25.9       2         1</pre></article></slide>
+## 1 for_loop                30.2   29.2      1.03      2.40     17.4
+## 2 vapply_vectorization    30.8   30.5      1         1        21.6
+## 3 r_internals_vectorized   1      1       30.0       2         1</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
