@@ -1,6 +1,9 @@
 # Woche 5/6 (9.11. - 22.11.)
 
-Übung, Vertiefung, Nachbereitung/Peer Reviews - kein neuer Stoff.
+
+Stability Selection Explainer:  
+[slides](slides/topdown-stability.html){:target="_blank"}
+
 
 **Machen:**
 
