@@ -93,8 +93,8 @@ Debugging - Performance
 **Machen:**
 
 - [Half-Space Mass](ex/topdown-halfspacemass-ex.html){:target="_blank"}
+(s. repository `halfspacemass-ex-<XXX>`)
 
-S.a. Assignment-Repo.
 
 --------------------
 
