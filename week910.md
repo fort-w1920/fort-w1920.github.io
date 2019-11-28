@@ -17,5 +17,5 @@ title: Woche 9/10 (7.12. - 20.12.)
 **Machen:**
 
 - [`S3` Lektüre & Quiz](ex/s3-hadley-ex.html){:target="_blank"} (s. repository `s3-hadley-<XXX>`)
-- [`S3`-Bebesprabachebe](ex/s3-bb-ex.html){:target="_blank"}^[....sorry not sorry...] (s. repository `s3-bb-<XXX>`)
+- [`S3`-Bebesprabachebe](ex/s3-bb-ex.html){:target="_blank"} (s. repository `s3-bb-<XXX>`^[....sorry not sorry...])
 - [`S4` Tierwelt](ex/s4-animal-ex.html){:target="_blank"} (s. repository `s3-animal-<XXX>`)
