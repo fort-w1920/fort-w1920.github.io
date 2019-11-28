@@ -45,78 +45,23 @@ und klonen dieses auf ihren Rechner um die jeweilige Aufgabe dann zu bearbeiten.
 
 -------------------
 
-##  Woche 1 (11.- 18.10.)
+##  Teil I (Oktober - Dezember)
 
-Styleguide - Programmentwurf - Defensive Programmierung.
+[Teil I](part1.html)
 
-[Material](week1.html)
-
--------------------
-
-##  Woche 2 (19.10. - 25.10.)
-
-Programmentwurf
-
-[Material](week2.html)
+- Styleguide - Programmentwurf - Defensive Programmierung
+- Funktionen - Environments
+- Debugging - Performance
+- Übungen: Stability Selection, RANSAC, Halfspace Mass
 
 -------------------
 
-##  Woche 3 (26.10. - 1.11.)
-
-Funktionen - Environments
-
-Präsenzzeit am 1.11. entfällt wegen Feiertag.  
-[Look here](week3.html)
-
--------------------
-
-##  Woche 4 (2.11. - 8.11.)
-
-Debugging - Performance
-
-[Material](week4.html)
-
--------------------
-
-## Woche 5/6 (9.11. - 22.11.)
-
-Übung, Vertiefung, Nachbereitung/Peer Reviews - kein neuer Stoff.
-
-[Material](week56.html)
-
--------------------
-
-## Woche 7/8 (23.11. - 6.12.)
-
-Übung, Vertiefung, Nachbereitung/Peer Reviews - kein neuer Stoff.
-
-**Machen:**
-
-- [Half-Space Mass](ex/topdown-halfspacemass-ex.html){:target="_blank"}
-(s. repository `halfspacemass-ex-<XXX>`)
-
-
---------------------
-
-### Ende Teil I
-
-<!--
-
---------------------
+##  Teil II
 
 ## Woche 9/10 (7.12. - 20.12.)
 
-Präsenzzeit am 20.12. entfällt.
+Objektorientierte Programmierung: S3 & S4
 
-**Lesen/Anschauen:**
+**Präsenzzeiten am 13. und 20.12. entfallen.**
 
-- `S3`
-- `S4`
-
-**Machen:**
-
-- [Half-Space Mass](ex/topdown-halfspacemass-ex.html){:target="_blank"}
-
-S.a. Assignment-Repos.
-
--->
+[Material](week910.html)
