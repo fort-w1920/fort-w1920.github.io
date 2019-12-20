@@ -65,3 +65,9 @@ Objektorientierte Programmierung: S3 & S4
 **Präsenzzeiten am 13. und 20.12. entfallen.**
 
 [Material](week910.html)
+
+## Woche 11/12 (9.1. - 17.1.)
+
+Paketentwicklung: `devtools`, `roxygen2` & Co
+
+[Material](week1112.html)
