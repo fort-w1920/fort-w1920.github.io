@@ -3,8 +3,6 @@
 
 Willkommen zum Kurs. Es wird großartig!
 
-**ACHTUNG RAUMÄNDERUNG:**
-
 Donnerstag 14:00-16:00 c.t. @ **A015**  
 Freitag 14:00-16:00 c.t. @ **A017**  
 
