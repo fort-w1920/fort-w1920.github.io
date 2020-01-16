@@ -72,6 +72,6 @@ Paketentwicklung: `devtools`, `roxygen2` & Co
 
 ## Woche 13 (18.1. - 24.1.)
 
-Metaprogrammnig: Expressions, Calls, Non-Standard Evaluation
+Metaprogramming: Expressions, Calls, Non-Standard Evaluation
 
 [Material](week13.html)
