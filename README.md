@@ -69,3 +69,9 @@ Objektorientierte Programmierung: S3 & S4
 Paketentwicklung: `devtools`, `roxygen2` & Co
 
 [Material](week1112.html)
+
+## Woche 13 (18.1. - 24.1.)
+
+Metaprogrammnig: Expressions, Calls, Non-Standard Evaluation
+
+[Material](week13.html)
