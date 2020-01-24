@@ -75,3 +75,13 @@ Paketentwicklung: `devtools`, `roxygen2` & Co
 Metaprogramming: Expressions, Calls, Non-Standard Evaluation
 
 [Material](week13.html)
+
+## Woche 14 (25.1. - 31.1.)
+
+Objektorientierte Programmierung: R6
+
+**Präsenzzeit am 31.1. entfällt!**
+
+[Material](week14.html)
+
+[Material](week14.html)
