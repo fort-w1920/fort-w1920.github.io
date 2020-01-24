@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FoRt:  R &amp; OOP: S3</title>
+  <title>FoRt:  Metaprogramming:  expressions, calls, etc…</title>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -19,7 +19,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'FoRt:<br> R &amp; OOP: S3',
+                title: 'FoRt:<br> Metaprogramming:<br> expressions, calls, etc…',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -3157,534 +3157,345 @@ color: white;
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>S3</h2></hgroup><article  id="s3">
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Metaprogrammming</h2></hgroup><article  id="metaprogrammming">
 
-</article></slide><slide class=""><hgroup><h2>S3</h2></hgroup><article  id="s3-1">
+<blockquote>
+<p>M. beschreibt die Fähigkeit von Programmen, sich selbst zu analysieren und ihr Verhalten zu verändern. […] Es handelt sich also um die Programmierung von Programmierung: Der Programmcode wird von einem anderen Programmcode erzeugt.</p>
+</blockquote>
+
+<p><a href='http://de.wikipedia.org/wiki/Metaprogrammierung' title=''>Wikipedia</a></p>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Was sind <code>expressions</code>?</h2></hgroup><article  id="was-sind-expressions">
+
+</article></slide><slide class=""><hgroup><h2>Unterscheidung: Operation vs. Ergebnis</h2></hgroup><article  id="unterscheidung-operation-vs.ergebnis">
+
+<p>Unterscheide <strong>Operation</strong> &ldquo;Multipliziere <code>x</code> mit 10 und speichere Ergebnis als <code>y</code>&rdquo; und <strong>Ergebnis</strong> <code>40</code>:</p>
+
+<pre class = 'prettyprint lang-r'>x &lt;- 4
+y &lt;- x * 10
+y</pre>
+
+<pre >## [1] 40</pre>
+
+</article></slide><slide class=""><hgroup><h2>Operationen &ldquo;einfangen&rdquo; mit <code>quote()</code></h2></hgroup><article  id="operationen-einfangen-mit-quote">
+
+<pre class = 'prettyprint lang-r'>z &lt;- quote(y &lt;- x * 10)
+str(z)</pre>
+
+<pre >##  language y &lt;- x * 10</pre>
+
+<p><code>z</code> also <code>language</code>-Objekt, genauer: <code>expression</code>.</p>
+
+<!--
+## Struktur von Ausdrücken: ASTs
+
+Betrachte *abstract syntax tree* (AST) um hierarchische Baumstruktur von `expression`s zu analysieren:
+
+
+```r
+lobstr::ast(y <- x * 10)
+```
+
+```
+## █─`<-` 
+## ├─y 
+## └─█─`*` 
+##   ├─x 
+##   └─10
+```
+
+$\Rightarrow$ Kette von Funktionsaufrufen, mit entsprechenden Argumenten (die selbst wieder Funktionsaufrufe sein können.)
+
+## Struktur von Ausdrücken:
+
+`expressions` können bestehen aus:
+
+* Konstanten (`constant`): numerische Werte, strings, etc. <br>Genauer: *atomic vectors* mit Länge 1.
+* Namen (`name`, `symbol`): Objektnamen
+* Funktionsaufrufe (`call`): **rekursive** Objekte, die selbst wiederum `constants`, `names`, `calls` enthalten können.
+* `pairlists`: definieren `formals` einer Funktion.
+
+## AST-Darstellung von `constants`, `names`:
+
+
+```r
+ast("a")
+```
+
+```
+## "a"
+```
+
+```r
+ast(4.20)
+```
+
+```
+## 4.2
+```
+
+```r
+ast(1L)
+```
+
+```
+## 1L
+```
+
+```r
+ast(x)
+```
+
+```
+## x
+```
+
+```r
+ast(mean)
+```
+
+```
+## mean
+```
+
+```r
+ast(`komischer Name mit backticks`)
+```
+
+```
+## `komischer Name mit backticks`
+```
+
+## AST-Darstellung von `calls`:
+
+
+```r
+ast(some_function(arg1 = 1, arg2 = 2))
+```
+
+```
+## █─some_function 
+## ├─arg1 = 1 
+## └─arg2 = 2
+```
+
+```r
+ast(a + 3)
+```
+
+```
+## █─`+` 
+## ├─a 
+## └─3
+```
+
+```r
+ast(x[index_vec])
+```
+
+```
+## █─`[` 
+## ├─x 
+## └─index_vec
+```
+&nbsp;<br>
+Aufruf repräsentiert durch `()`, gefolgt von Funktionsname als erstem Zweig und dann den Argumenten
+
+## AST-Darstellung von `pairlist`:
+
+
+```r
+ast(function(x = 1, y) {
+  x / y
+})
+```
+
+```
+## █─`function` 
+## ├─█─x = 1 
+## │ └─y = `` 
+## ├─█─`{` 
+## │ └─█─`/` 
+## │   ├─x 
+## │   └─y 
+## └─<inline srcref>
+```
+&nbsp;<br>
+... der Vollständigkeit halber.
+-->
+
+</article></slide><slide class=""><hgroup><h2>Exkurs: Verwirrung durch <code>str</code></h2></hgroup><article  id="exkurs-verwirrung-durch-str">
+
+<p><code>str()</code> bezeichnet <code>names</code> als <code>symbols</code> und <code>calls</code> als <code>language</code>:</p>
+
+<pre class = 'prettyprint lang-r'>str(quote(a))</pre>
+
+<pre >##  symbol a</pre>
+
+<pre class = 'prettyprint lang-r'>str(quote(a + b))</pre>
+
+<pre >##  language a + b</pre>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Typen von Ausdrücken</h2></hgroup><article  id="typen-von-ausdrucken">
+
+</article></slide><slide class=""><hgroup><h2><code>constants</code></h2></hgroup><article  id="constants">
 
 <ul>
-<li>ältestes &amp; einfachstes OO System in R</li>
-<li>einziges OO System das in den <code>base</code>, <code>graphics</code>, <code>utils</code>, <code>datasets</code> und <code>stats</code> Paketen benutzt wird</li>
-<li>informell und <em>ad hoc</em>, aber ausreichend für die meisten Projekte (IMO, YMMV)</li>
+<li>Konstanten / Werte</li>
+<li>genauer: <em>atomic vectors</em> der Länge 1; also keine Listen, S4 Objekte etc</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>S3 Prinzip</h2></hgroup><article  id="s3-prinzip">
-
-<p>Methoden sind mit Funktionen – genauer: <em>generics</em>– assoziiert, nicht mit Objekten oder Klassen</p>
-
-<p>Grundidee:</p>
+</article></slide><slide class=""><hgroup><h2><code>names</code></h2></hgroup><article  id="names">
 
 <ul>
-<li>Eine <strong>generische Funktion</strong> definiert ein &ldquo;Label&rdquo; für eine ganze Sammlung von <em>Methoden</em></li>
-<li>Wenn eine generische Funktion aufgerufen wird, gibt sie die Argumente weiter an eine spezialisierte <strong>Methode</strong>, die für die Klasse des (üblicherweise) ersten Arguments definiert ist (<strong>method dispatch</strong>)</li>
+<li>Namen von R-Objekten</li>
+<li>mit <code>quote()</code> einfangen ohne auszuwerten</li>
+<li>mit <code>as.name()</code> oder <code>as.symbol()</code> kann <code>character</code> in <code>name</code> umgewandelt werden</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>S3 Beispiel: <code>print()</code></h2></hgroup><article  id="s3-beispiel-print">
-
-<ul>
-<li><code>print(x)</code> muss sehr unterschiedliche Dinge tun je nachdem was <code>x</code> ist…</li>
-<li><code>S3</code> nimmt es dem Nutzer ab selbst angeben zu müssen was für eine <code>print</code>-Methode benutzt werden soll</li>
-<li>die richtige <strong>Methode</strong> für das Ausgeben von <code>x</code> wird ermittelt indem die <code>S3</code>-Klasse von <code>x</code> abgefragt wird (<strong>method dispatch</strong>)</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>S3: Generische Funktionen</h2></hgroup><article  id="s3-generische-funktionen">
-
-<ul>
-<li>Quellcode einer <em>generic</em> macht üblicherweise nur einen Aufruf von <code>UseMethod()</code></li>
-<li><code>UseMethod()</code> baldowert aus welche Methode die richtige ist und ruft diese auf (<strong>method dispatch</strong>)</li>
-</ul>
-
-<p>Beispiel:</p>
-
-<pre class = 'prettyprint lang-r'>print</pre>
-
-<pre >## function (x, ...) 
-## UseMethod(&quot;print&quot;)
-## &lt;bytecode: 0x5629d1aab408&gt;
-## &lt;environment: namespace:base&gt;</pre>
-
-<pre class = 'prettyprint lang-r'>predict</pre>
-
-<pre >## function (object, ...) 
-## UseMethod(&quot;predict&quot;)
-## &lt;bytecode: 0x5629d06a2408&gt;
-## &lt;environment: namespace:stats&gt;</pre>
-
-</article></slide><slide class=""><hgroup><h2>S3: Methods</h2></hgroup><article  id="s3-methods">
-
-<ul>
-<li><code>S3</code>-Methoden heißen immer <code>&lt;generic&gt;.&lt;class&gt;()</code><br> (ein Grund mehr bei der Programmierung nicht den Punkt als Trennzeichen für Namen zu verwenden)</li>
-<li>benutze <code>methods(&lt;generic&gt;)</code> um zu sehen welche Methoden für eine <em>generic</em> definiert sind:</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>methods(mean)</pre>
-
-<pre >## [1] mean.Date     mean.default  mean.difftime mean.POSIXct  mean.POSIXlt 
-## [6] mean.quosure*
-## see &#39;?methods&#39; for accessing help and source code</pre>
-
-</article></slide><slide class=""><hgroup><h2>S3: Methods</h2></hgroup><article  id="s3-methods-1">
-
-<ul>
-<li>zeige alle <em>generics</em> die Methoden für eine gegebene Klasse haben:</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>methods(class = &quot;ts&quot;)</pre>
-
-<pre >##  [1] [             [&lt;-           aggregate     as.data.frame cbind        
-##  [6] coerce        cycle         diff          diffinv       initialize   
-## [11] kernapply     lines         Math          Math2         monthplot    
-## [16] na.omit       Ops           plot          print         show         
-## [21] slotsFromS3   t             time          window        window&lt;-     
-## see &#39;?methods&#39; for accessing help and source code</pre>
-
-<pre class = 'prettyprint lang-r'>methods(class = &quot;lm&quot;)</pre>
-
-<pre >##  [1] add1           alias          anova          case.names     coerce        
-##  [6] confint        cooks.distance deviance       dfbeta         dfbetas       
-## [11] drop1          dummy.coef     effects        extractAIC     family        
-## [16] formula        hatvalues      influence      initialize     kappa         
-## [21] labels         logLik         model.frame    model.matrix   nobs          
-## [26] plot           predict        print          proj           qr            
-## [31] residuals      rstandard      rstudent       show           simulate      
-## [36] slotsFromS3    summary        variable.names vcov          
-## see &#39;?methods&#39; for accessing help and source code</pre>
-
-</article></slide><slide class=""><hgroup><h2>S3: Methods</h2></hgroup><article  id="s3-methods-2">
-
-<ul>
-<li>viele <code>S3</code>-Methoden sind nicht direkt einsehbar</li>
-<li>benutze <code>getS3method()</code> um deren Quellcode zu betrachten:</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>getS3method(f = &quot;extractAIC&quot;, class = &quot;lm&quot;)</pre>
-
-<pre >## function (fit, scale = 0, k = 2, ...) 
-## {
-##     n &lt;- length(fit$residuals)
-##     edf &lt;- n - fit$df.residual
-##     RSS &lt;- deviance.lm(fit)
-##     dev &lt;- if (scale &gt; 0) 
-##         RSS/scale - n
-##     else n * log(RSS/n)
-##     c(edf, dev + k * edf)
-## }
-## &lt;bytecode: 0x5629d0f4dec0&gt;
-## &lt;environment: namespace:stats&gt;</pre>
-
-</article></slide><slide class=""><hgroup><h2>S3: Methods</h2></hgroup><article  id="s3-methods-3">
-
-<p>… oder auch einfach <code>:::</code> wenn man das definierende Paket kennt:</p>
-
-<pre class = 'prettyprint lang-r'>stats:::deviance.lm</pre>
-
-<pre >## function (object, ...) 
-## sum(weighted.residuals(object)^2, na.rm = TRUE)
-## &lt;bytecode: 0x5629cf78b0f0&gt;
-## &lt;environment: namespace:stats&gt;</pre>
-
-<pre class = 'prettyprint lang-r'>stats:::deviance.glm</pre>
-
-<pre >## function (object, ...) 
-## object$deviance
-## &lt;bytecode: 0x5629d064a6a8&gt;
-## &lt;environment: namespace:stats&gt;</pre>
-
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>S3 Objekte</h2></hgroup><article  id="s3-objekte">
-
-</article></slide><slide class=""><hgroup><h2>S3 Objekte</h2></hgroup><article  id="s3-objekte-1">
-
-<p>S3-Klasse eines Objekts wird durch sein <code>class</code>-Attribut festgelegt:</p>
-
-<ul>
-<li><code>class(x)</code> gibt das <code>class</code>-Attribut zurück</li>
-<li><code>class&lt;-()</code> setzt das <code>class</code>-Attribut eines Objekts und damit die S3-Klasse</li>
-<li><code>inherits(x, &quot;some_class&quot;)</code> checkt ob <code>x</code> zur Klasse <code>some_class</code> gehört.</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>terrible_person &lt;- &quot;Liz Mohn (Bertelsmann)&quot;
-class(terrible_person) &lt;- &quot;top1percenter&quot;
-str(terrible_person)</pre>
-
-<pre >##  &#39;top1percenter&#39; chr &quot;Liz Mohn (Bertelsmann)&quot;</pre>
-
-<pre class = 'prettyprint lang-r'>class(terrible_person)</pre>
-
-<pre >## [1] &quot;top1percenter&quot;</pre>
-
-<pre class = 'prettyprint lang-r'>inherits(terrible_person, &quot;top1percenter&quot;)</pre>
+<pre class = 'prettyprint lang-r'>identical(quote(some_name), as.name(&quot;some_name&quot;))</pre>
 
 <pre >## [1] TRUE</pre>
 
-</article></slide><slide class=""><hgroup><h2>S3: Klassendefinition &amp; Objekterstellung</h2></hgroup><article  id="s3-klassendefinition-objekterstellung">
-
-<p>Simpel, ad-hoc:</p>
-
 <ul>
-<li>es gibt <strong>keine Klassendefinition</strong>: nur implizit durch bestehenden Code definiert</li>
-<li><strong>jedes</strong> dahergelaufene R-Objekt <code>object</code> mit</li>
+<li>mit <code>is.name()</code> oder <code>is.symbol()</code> kann Typ abgefragt werden</li>
+<li>mit <em>backticks</em> können unsyntaktische Namen definiert werden:</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'> &quot;whatever&quot; %in% attribute(object, &quot;class&quot;)</pre>
+<pre class = 'prettyprint lang-r'>`was soll das?` &lt;- 10
+`was soll das?`</pre>
 
-<pre >ist ein Objekt der Klasse `whatever` (!!)</pre>
+<pre >## [1] 10</pre>
 
-</article></slide><slide class=""><hgroup><h2>S3 Objekte</h2></hgroup><article  id="s3-objekte-2">
+</article></slide><slide class=""><hgroup><h2><code>calls</code></h2></hgroup><article  id="calls">
 
 <ul>
-<li><code>class</code> kann auch ein Vektor sein</li>
-<li>geht von engster zu breitester/allgemeinster Klasse:</li>
+<li>ähnlich wie <code>list</code>: rekursives Objekt mit <code>$</code>, <code>[</code>, <code>[[</code>, <code>length</code>-Methoden</li>
+<li>erster Eintrag üblicherweise der <code>name</code> einer Funktion</li>
+<li>Folgeeinträge sind Funktionsargumente</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>(o &lt;- ordered(1:3))</pre>
-
-<pre >## [1] 1 2 3
-## Levels: 1 &lt; 2 &lt; 3</pre>
-
-<pre class = 'prettyprint lang-r'>class(o)</pre>
-
-<pre >## [1] &quot;ordered&quot; &quot;factor&quot;</pre>
-
-</article></slide><slide class=""><hgroup><h2>S3 Objekte</h2></hgroup><article  id="s3-objekte-3">
-
-<ul>
-<li><code>S3</code>-Objekte sind meist <em>base type</em> <code>list</code> oder ein Vektor mit Attributen:</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>attributes(o)</pre>
-
-<pre >## $levels
-## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;
-## 
-## $class
-## [1] &quot;ordered&quot; &quot;factor&quot;</pre>
-
-<pre class = 'prettyprint lang-r'>typeof(o)</pre>
-
-<pre >## [1] &quot;integer&quot;</pre>
-
-<pre class = 'prettyprint lang-r'>m &lt;- lm(1 : 3 ~ o)
-typeof(m)</pre>
-
-<pre >## [1] &quot;list&quot;</pre>
-
-<pre class = 'prettyprint lang-r'>attributes(m)</pre>
-
-<pre >## $names
-##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
-##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
-##  [9] &quot;contrasts&quot;     &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;        
-## [13] &quot;model&quot;        
-## 
-## $class
-## [1] &quot;lm&quot;</pre>
-
-</article></slide><slide class=""><hgroup><h2>S3 Objekte</h2></hgroup><article  id="s3-objekte-4">
-
-<ul>
-<li><code>S3</code>-Klassen haben üblicherweise eine Konstruktor-Funktion</li>
-<li><p>immer benutzen falls vorhanden (z.B. <code>factor()</code>, <code>data.frame()</code>)</p></li>
-<li><p>Konstruktor sollte genauso heißen wie die Klasse deren Objekte er erzeugt:</p></li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>top1percenter &lt;- function(x, wealth) {
-  if (wealth &lt; 100e6) {
-    stop(x, &quot; is not filthy rich and not a member of the top 1%.&quot;)
-  }
-  attr(x, &quot;wealth&quot;) &lt;- wealth
-  class(x) &lt;-  &quot;top1percenter&quot;
-  x
-}
-
-terrible_person &lt;- top1percenter(&quot;Liz Mohn (Bertelsmann)&quot;, wealth = 3e9)
-
-top1percenter(&quot;F.S. aus M.&quot;, wealth = 15e4)</pre>
-
-<pre >## Error in top1percenter(&quot;F.S. aus M.&quot;, wealth = 150000): F.S. aus M. is not
-## filthy rich and not a member of the top 1%.</pre>
-
-</article></slide><slide class=""><hgroup><h2>Basetypes &amp; S3</h2></hgroup><article  id="basetypes-s3">
-
-<ul>
-<li>alle R-Objekte ohne <code>class</code>-Attribut haben eine <em>implizite</em> Klasse:
-
-<ul>
-<li><code>&quot;matrix&quot;, &quot;array&quot;, &quot;function&quot;, &quot;list&quot;, &quot;character&quot;, &quot;logical&quot;, &quot;call&quot;, &quot;name&quot;</code></li>
-<li><code>&quot;numeric&quot;</code> mit Unterklassen <code>&quot;integer&quot;, &quot;double&quot;, &quot;complex&quot;</code></li>
-</ul></li>
-<li>S3 <em>method dispatch</em> funktioniert entsprechend</li>
-<li>Vorsicht – Klassenhierarchie ist hier etwas weird und nirgends sauber dokumentiert:
-
-<ul>
-<li>wenn <code>numeric</code>/<code>character</code>/<code>logical</code> Methode existiert, wird diese auch für entsprechende <code>matrix</code> oder <code>array</code> Objekte benutzt falls keine expliziten <code>matrix</code> oder <code>array</code> Methoden definiert sind, auch wenn die Klasse eigentlich nur <code>matrix</code> bzw <code>array</code> ist…</li>
-</ul></li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Basetypes &amp; S3</h2></hgroup><article  id="basetypes-s3-1">
-
-<pre class = 'prettyprint lang-r'>m &lt;- matrix(1:4, 2, 2)
-class(m)</pre>
-
-<pre >## [1] &quot;matrix&quot;</pre>
-
-<pre class = 'prettyprint lang-r'># eigentlich: c(&quot;integer&quot;, &quot;numeric&quot;, &quot;matrix&quot;) !!
-is.integer(m) &amp; is.numeric(m) &amp; is.matrix(m)</pre>
-
-<pre >## [1] TRUE</pre>
-
-<pre class = 'prettyprint lang-r'>inherits(m, &quot;matrix&quot;) </pre>
-
-<pre >## [1] TRUE</pre>
-
-<pre class = 'prettyprint lang-r'>inherits(m, &quot;integer&quot;) #!! :(</pre>
-
-<pre >## [1] FALSE</pre>
-
-<pre class = 'prettyprint lang-r'>inherits(m, &quot;numeric&quot;) #!! :(</pre>
-
-<pre >## [1] FALSE</pre>
-
-</article></slide><slide class=""><hgroup><h2>Basetypes &amp; S3</h2></hgroup><article  class="small" id="basetypes-s3-2">
+</article></slide><slide class=""><hgroup><h2><code>calls</code></h2></hgroup><article  id="calls-1">
 
 <div class="columns-2">
-<pre class = 'prettyprint lang-r'>baffle &lt;- function(x) UseMethod(&quot;baffle&quot;)
-baffle.default &lt;- function(x) {
-  cat(&quot;dispatches on&quot;, class(x), &quot;\n&quot;)
-}  
-baffle(matrix(1, nrow = 2))</pre>
+<pre class = 'prettyprint lang-r'>lobstr::ast(f(a = x, b = y^2))</pre>
 
-<pre >## dispatches on matrix</pre>
+<pre >## █─f 
+## ├─a = x 
+## └─b = █─`^` 
+##       ├─y 
+##       └─2</pre>
 
-<pre class = 'prettyprint lang-r'>baffle(1)</pre>
+<pre class = 'prettyprint lang-r'>expr &lt;- quote(f(a = x, b = y^2))
+expr[[1]]</pre>
 
-<pre >## dispatches on numeric</pre>
+<pre >## f</pre>
 
-<pre class = 'prettyprint lang-r'>baffle.numeric &lt;- function(x) {
-  cat(&quot;uses numeric method\n&quot;)
-}  
-baffle(1.0)</pre>
+<pre class = 'prettyprint lang-r'>expr[[3]]</pre>
 
-<pre >## uses numeric method</pre>
+<pre >## y^2</pre>
 
-<pre class = 'prettyprint lang-r'>baffle(2L)</pre>
+<pre class = 'prettyprint lang-r'>expr$b</pre>
 
-<pre >## uses numeric method</pre>
+<pre >## y^2</pre>
 
-<pre class = 'prettyprint lang-r'>baffle(matrix(1, nrow = 2)) #!!</pre>
+<pre class = 'prettyprint lang-r'>expr[[3]][[1]]</pre>
 
-<pre >## uses numeric method</pre>
+<pre >## `^`</pre>
 
-<pre class = 'prettyprint lang-r'>baffle(matrix(&quot;a&quot;, nrow = 2)) </pre>
+<pre class = 'prettyprint lang-r'>is.call(expr)</pre>
 
-<pre >## dispatches on matrix</pre>
+<pre >## [1] TRUE</pre>
 
-<pre class = 'prettyprint lang-r'>baffle.integer &lt;- function(x) {
-  cat(&quot;uses integer method\n&quot;)
-}
-baffle.double &lt;- function(x) {
-  cat(&quot;uses double method\n&quot;)
-}
-baffle(1.0)</pre>
+<pre class = 'prettyprint lang-r'>is.call(expr[[3]])</pre>
 
-<pre >## uses double method</pre>
+<pre >## [1] TRUE</pre>
 
-<pre class = 'prettyprint lang-r'>baffle(2L) </pre>
+<pre class = 'prettyprint lang-r'>str(as.list(expr))</pre>
 
-<pre >## uses integer method</pre>
+<pre >## List of 3
+##  $  : symbol f
+##  $ a: symbol x
+##  $ b: language y^2</pre></div>
 
-<pre class = 'prettyprint lang-r'>baffle.matrix &lt;- function(x) {
-  cat(&quot;uses matrix method\n&quot;)
-}
-baffle(matrix(1, nrow = 2))</pre>
+</article></slide><slide class=""><hgroup><h2><code>call</code>s manipulieren</h2></hgroup><article  id="calls-manipulieren">
 
-<pre >## uses matrix method</pre>
+<p>Elemente eines <code>calls</code> können entfernt, hinzugefügt und überschrieben werden:</p>
 
-<pre class = 'prettyprint lang-r'>baffle(matrix(&quot;a&quot;, nrow = 2))</pre>
+<pre class = 'prettyprint lang-r'>y &lt;- quote(read.csv(&quot;important.csv&quot;, row.names = FALSE))
+y$row.names &lt;- TRUE
+y$col.names &lt;- FALSE
+y</pre>
 
-<pre >## uses matrix method</pre></div>
+<pre >## read.csv(&quot;important.csv&quot;, row.names = TRUE, col.names = FALSE)</pre>
 
-</article></slide><slide class=""><hgroup><h2>S3 Objekte: Interface, Constructor, Validator</h2></hgroup><article  id="s3-objekte-interface-constructor-validator">
+<pre class = 'prettyprint lang-r'>y[[2]] &lt;- quote(paste0(filename, &quot;.csv&quot;))
+y[[4]] &lt;- NULL
+y</pre>
 
-<ul>
-<li><code>S3</code> ist <strong>zu</strong> informell für sauberes, defensives Programmieren.</li>
-<li>Besonders für komplexere <code>S3</code>-Objekte sollte der Konstruktor in
+<pre >## read.csv(paste0(filename, &quot;.csv&quot;), row.names = TRUE)</pre>
 
-<ul>
-<li>ein benutzerfreundliches Interface,</li>
-<li>eine <em>low-level</em> Konstruktorfunktion und</li>
-<li>eine Validierungsfunktion<br/>zergliedert werden</li>
-</ul></li>
-</ul>
+<pre class = 'prettyprint lang-r'>y$sep &lt;- &quot;,&quot;
+y</pre>
 
-</article></slide><slide class=""><hgroup><h2>S3 Objekte: Interface</h2></hgroup><article  id="s3-objekte-interface">
+<pre >## read.csv(paste0(filename, &quot;.csv&quot;), row.names = TRUE, sep = &quot;,&quot;)</pre>
 
-<p>Interface-Funktionen:</p>
+<pre class = 'prettyprint lang-r'>y[-4]</pre>
 
-<ul>
-<li>heißen wie die Klasse selbst</li>
-<li>definieren sinnnvolle <em>defaults</em> für die Felder der Klasse, soweit möglich</li>
-<li>sind flexibel und benutzerfreundlich programmiert</li>
-<li>rufen den Konstruktor und die Validierungsfunktion der Klasse auf</li>
-</ul>
+<pre >## read.csv(paste0(filename, &quot;.csv&quot;), row.names = TRUE)</pre>
 
-<pre class = 'prettyprint lang-r'># Interface:
-top1percenter &lt;- function(name, wealth, currency = &quot;€&quot;) {
-  validate_top1percenter(
-    new_top1percenter(name, wealth, currency)
-  )
-}</pre>
+<pre class = 'prettyprint lang-r'>y[[1]] &lt;- quote(read.table)
+y</pre>
 
-</article></slide><slide class=""><hgroup><h2>S3 Objekte: Constructor</h2></hgroup><article  id="s3-objekte-constructor">
+<pre >## read.table(paste0(filename, &quot;.csv&quot;), row.names = TRUE, sep = &quot;,&quot;)</pre>
 
-<p>Constructor-Funktionen:</p>
+</article></slide><slide class=""><hgroup><h2><code>call</code>s kreieren</h2></hgroup><article  id="calls-kreieren">
 
-<ul>
-<li>heißen <code>new_&lt;NAME OF CLASS&gt;</code> und haben Argumente für die Felder der S3-Klasse</li>
-<li>prüfen nur ob alle Argumente/Felder den richtigen Typ haben (<em>syntaktische</em> Korrektheit)</li>
-<li>geben ein Objekt der Klasse zurück</li>
-</ul>
+<p>Konstruktoren <code>call()</code> und <code>as.call()</code>:</p>
 
-<pre class = 'prettyprint lang-r'># Konstruktor:
-new_top1percenter &lt;- function(name = character(), wealth = numeric(), 
-                              currency = character()) {
-  checkmate::assert_number(wealth, na.ok = FALSE)
-  checkmate::assert_string(name, na.ok = FALSE)
-  checkmate::assert_string(currency, na.ok = FALSE)
-  structure(name,
-            wealth = wealth,
-            currency = currency,
-            class = &quot;top1percenter&quot;)
-}</pre>
-
-</article></slide><slide class=""><hgroup><h2>S3 Objekte: Validator</h2></hgroup><article  id="s3-objekte-validator">
-
-<p>Validator-Funktionen:</p>
-
-<ul>
-<li>prüfen dass alle Felder des Objekts <em>inhaltlich sinnvolle</em>, miteinander kompatible Einträge haben (<em>semantische</em> Korrektheit)</li>
-<li>erzeugen informative Fehlermeldungen falls nicht.</li>
-<li>geben im Erfolgsfall das geprüfte Objekt zurück.</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>validate_top1percenter &lt;- function(object, min_wealth = 100e6) {
-  checkmate::assert_class(object, &quot;top1percenter&quot;)
-  checkmate::assert_choice(attr(object, &quot;currency&quot;),
-                           choices = c(&quot;€&quot;, &quot;$&quot;, &quot;£&quot;, &quot;¥&quot;))
-  if (attr(object, &quot;currency&quot;) == &quot;¥&quot;) min_wealth &lt;- min_wealth * 100
-  if (attr(object, &quot;wealth&quot;) &lt; min_wealth) {
-    stop(unclass(object), 
-         &quot; is not filthy rich and can&#39;t be a member of the top 1%.&quot;)
-  }
-  object
-}</pre>
-
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Programmieren mit S3 Methoden &amp; Generics</h2></hgroup><article  id="programmieren-mit-s3-methoden-generics">
-
-</article></slide><slide class=""><hgroup><h2>Neue <em>generics</em> definieren</h2></hgroup><article  id="neue-generics-definieren">
-
-<ul>
-<li>Funktion <code>new_generic</code> definieren die <code>UseMethod(&quot;new_generic&quot;, &quot;arg&quot;)</code> aufruft</li>
-<li><code>arg</code> ist das Argument dessen Klasse für den <em>method dispatch</em> abgefragt wird (<em>default</em>: erstes Argument)</li>
-<li><code>UseMethod()</code> bekommt keinerlei andere Argumente der <em>generic</em>!</li>
-<li><em>generics</em> sollten immer ein <code>...</code>-Argument akzeptieren: gewährleistet Flexibilität für neue Methoden</li>
-</ul>
+<pre class = 'prettyprint lang-r'>call(&quot;:&quot;, 1, 10)</pre>
 
-<pre class = 'prettyprint lang-r'>insult &lt;- function(object, ...) UseMethod(&quot;insult&quot;)</pre>
+<pre >## 1:10</pre>
 
-</article></slide><slide class=""><hgroup><h2>Neue Methoden definieren</h2></hgroup><article  id="neue-methoden-definieren">
+<pre class = 'prettyprint lang-r'>as.call(list(quote(`:`), 1, 10))</pre>
 
-<p>Ganz normale Funktionsdefinition:</p>
+<pre >## 1:10</pre>
 
-<ul>
-<li>mit dem korrekten <code>&lt;generic&gt;.&lt;class&gt;</code> Namen</li>
-<li>mit (mindestens) den Argumenten der <em>generic</em>:</li>
-</ul>
+<pre class = 'prettyprint lang-r'>call(&quot;mean&quot;, quote(range(z)), na.rm = TRUE)</pre>
 
-<pre class = 'prettyprint lang-r'>insult.top1percenter &lt;- function(x, ...) {
-  insult &lt;- sample(c(&quot;blood-sucking scourge of the working class.&quot;, 
-    &quot;heartless, greedy, Gaia-raping parasite.&quot;,
-    &quot;money-grubbing, power-hungry, sociopathic lizard person.&quot;), 1)
-  message(paste(x, &quot;is a&quot;, insult))
-} 
-insult(terrible_person)</pre>
+<pre >## mean(range(z), na.rm = TRUE)</pre>
 
-<pre >## Liz Mohn (Bertelsmann) is a blood-sucking scourge of the working class.</pre>
+<pre class = 'prettyprint lang-r'>as.call(list(quote(mean), quote(range(z)), na.rm = TRUE))</pre>
 
-</article></slide><slide class=""><hgroup><h2>Neue Methoden definieren</h2></hgroup><article  id="neue-methoden-definieren-1">
+<pre >## mean(range(z), na.rm = TRUE)</pre>
 
-<p>Ganz normale Funktionsdefinition:</p>
+</article></slide><slide class=""><hgroup><h2><code>bquote()</code></h2></hgroup><article  id="bquote">
 
-<ul>
-<li>mit dem korrekten <code>&lt;generic&gt;.&lt;class&gt;</code> Namen</li>
-<li>mit (mindestens) den Argumenten der <em>generic</em>:</li>
-</ul>
+<p>Mit <code>bquote()</code> können Ausdrücke <em>teil</em>evaluiert werden:</p>
 
-<pre class = 'prettyprint lang-r'>insult.top1percenter &lt;- function(x, ...) {
-  insult &lt;- sample(c(&quot;blood-sucking scourge of the working class.&quot;, 
-    &quot;heartless, greedy, Gaia-raping parasite.&quot;,
-    &quot;money-grubbing, power-hungry, sociopathic lizard person.&quot;), 1)
-  message(paste(x, &quot;is a&quot;, insult))
-} 
-insult(terrible_person)</pre>
+<pre class = 'prettyprint lang-r'>a &lt;- 1
+b &lt;- 3
+bquote(a + b)</pre>
 
-<pre >## Liz Mohn (Bertelsmann) is a blood-sucking scourge of the working class.</pre>
+<pre >## a + b</pre>
 
-<p><img src = "data:image/jpeg;base64,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" height = "150" align="right" /></p>
+<pre class = 'prettyprint lang-r'>bquote(a + .(b))</pre>
 
-</article></slide><slide class=""><hgroup><h2>Neue Methoden</h2></hgroup><article  id="neue-methoden">
+<pre >## a + 3</pre>
 
-<p>… für bestehende <em>generics</em> müssen sicherstellen dass sie zur <em>generic</em> passen:</p>
+<pre class = 'prettyprint lang-r'>bquote(.(a) + .(b))</pre>
 
-<pre class = 'prettyprint lang-r'>print</pre>
+<pre >## 1 + 3</pre>
 
-<pre >## function (x, ...) 
-## UseMethod(&quot;print&quot;)
-## &lt;bytecode: 0x5629d1aab408&gt;
-## &lt;environment: namespace:base&gt;</pre>
+<pre class = 'prettyprint lang-r'>bquote(.(a + b))</pre>
 
-<pre class = 'prettyprint lang-r'>terrible_person</pre>
+<pre >## [1] 4</pre>
 
-<pre >## [1] &quot;Liz Mohn (Bertelsmann)&quot;
-## attr(,&quot;wealth&quot;)
-## [1] 3e+09
-## attr(,&quot;currency&quot;)
-## [1] &quot;€&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;top1percenter&quot;</pre>
+<pre class = 'prettyprint lang-r'>bquote(.(a + b), list(a = 2, b = 4))</pre>
 
-<pre class = 'prettyprint lang-r'>print.top1percenter &lt;- function(x, ...) {
-  cat(x, &quot;\n      Class:  Top 1%\n  Net worth:&quot;, 
-    formatC(attr(x, &quot;wealth&quot;), digits = 5), attr(x, &quot;currency&quot;))
-} 
-terrible_person</pre>
+<pre >## [1] 6</pre>
 
-<pre >## Liz Mohn (Bertelsmann) 
-##       Class:  Top 1%
-##   Net worth:  3e+09 €</pre>
-
-</article></slide><slide class=""><hgroup><h2><em>Method Dispatch</em></h2></hgroup><article  id="method-dispatch">
-
-<ul>
-<li><code>UseMethod()</code> sucht nach Funktionen mit Namen wie <code>some_generic.&lt;class(x)[1]&gt;</code>, <code>some_generic.&lt;class(x)[2]&gt;</code>, etc., und <code>some_generic.default</code>, in dieser Reihenfolge.</li>
-<li>die erste die gefunden wird wird ausgewertet</li>
-<li>auf <em>default</em>-Methode wird zurückgegriffen wenn keine Methode für die Klasse implementiert ist:</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>insult.default &lt;- function(x, ...) {
-  insult &lt;- sample(c(&quot;Dsibbfigladdscha&quot;, &quot;Loamsiada&quot;, &quot;Breznsoiza&quot;, &quot;Haumdaucha&quot;), 1)
-  message(deparse(substitute(x)), &quot;, you &quot;, insult, &quot;!&quot;)
-}
-methods(&quot;insult&quot;)</pre>
-
-<pre >## [1] insult.default       insult.top1percenter
-## see &#39;?methods&#39; for accessing help and source code</pre>
-
-<pre class = 'prettyprint lang-r'>class(iris)</pre>
-
-<pre >## [1] &quot;data.frame&quot;</pre>
-
-<pre class = 'prettyprint lang-r'>insult(iris)</pre>
-
-<pre >## iris, you Loamsiada!</pre></article></slide>
+<p>.. nützlich cor allem für Plotlabels und um <code>call</code>s zu modifizieren.</p></article></slide>
 
 
   <slide class="backdrop"></slide>
